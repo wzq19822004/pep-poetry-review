@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>人教版小学语文 · 古诗词文言文全解复习手册</title>
+<title>人教版小学语文 · 古诗文名言全解复习手册（含日积月累）</title>
 <style>
 :root {
   --g1: #4CAF50; --g2: #2196F3; --g3: #FF9800; --g4: #9C27B0; --g5: #E91E63; --g6: #D32F2F;
@@ -250,6 +250,21 @@ body {
   border-bottom: 2px solid #e74c3c;
   padding-bottom: 1px;
 }
+/* 必背名句高亮 */
+.hl-sentence {
+  background: linear-gradient(180deg, transparent 55%, #fff3a0 55%);
+  padding: 2px 4px; border-radius: 2px;
+  font-weight: 700;
+}
+/* 写作手法标签 */
+.tag-technique {
+  display: inline-block; padding: 1px 8px; border-radius: 8px;
+  font-size: 11px; font-weight: 700; margin: 0 2px;
+  background: #ede7f6; color: #5e35b1; letter-spacing: .5px;
+}
+.technique-row {
+  display: flex; flex-wrap: wrap; gap: 3px; margin-top: 6px;
+}
 
 /* ===== BACK TO TOP ===== */
 .back-top {
@@ -297,6 +312,7 @@ body {
     <button class="btn-mini" data-filter="shi" onclick="setFilter('shi',this)">古诗</button>
     <button class="btn-mini" data-filter="ci" onclick="setFilter('ci',this)">词</button>
     <button class="btn-mini" data-filter="wen" onclick="setFilter('wen',this)">文言</button>
+    <button class="btn-mini" data-filter="meng" onclick="setFilter('meng',this)">名言</button>
     <button class="btn-mini" onclick="window.print()">🖨 打印</button>
   </div>
 </nav>
@@ -315,10 +331,10 @@ body {
       <li><a href="#g6" class="g6" onclick="setSidebarActive(this)">六年级 <small>(31篇)</small></a></li>
     </ul>
     <div class="stat-mini">
-      <div class="stat-row"><span>总篇数</span><strong>126</strong></div>
+      <div class="stat-row"><span>总篇数</span><strong>165+</strong></div>
       <div class="stat-row"><span>诗词</span><strong>112</strong></div>
       <div class="stat-row"><span>文言文</span><strong>14</strong></div>
-      <div class="stat-row"><span>作者</span><strong>60+</strong></div>
+      <div class="stat-row"><span>名言警句</span><strong>40+</strong></div>
     </div>
   </aside>
 
@@ -327,13 +343,13 @@ body {
 
     <!-- PAGE HEADER -->
     <div class="page-header">
-      <h1>古诗词与文言文全解</h1>
+      <h1>古诗文与名言警句全解</h1>
       <div class="sub">人教版（部编版）小学语文 1–6 年级 · 全册复习手册</div>
       <div class="stats-bar">
-        <div class="stat"><div class="n">126</div><div class="l">全册篇目</div></div>
+        <div class="stat"><div class="n">165+</div><div class="l">全册篇目</div></div>
         <div class="stat"><div class="n">112</div><div class="l">诗词</div></div>
         <div class="stat"><div class="n">14</div><div class="l">文言文</div></div>
-        <div class="stat"><div class="n">12</div><div class="l">册教材</div></div>
+        <div class="stat"><div class="n">40+</div><div class="l">名言警句</div></div>
       </div>
     </div>
 
@@ -781,6 +797,29 @@ body {
   </div>
 </div>
 
+
+<div class="semester-label">📝 日积月累 · 名言警句</div>
+
+<div class="poem-card" data-grade="1" data-genre="meng" data-search="对韵歌">
+  <div class="poem-card-header"><div class="poem-idx g1">M1</div><div><div class="poem-title">对韵歌</div><div class="poem-subtitle">一年级上册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text">云对雨，雪对风。<br>花对树，鸟对虫。<br><span class="hl-sentence">山清对水秀，柳绿对桃红。</span></div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">对韵</span><span class="note-def">把意义相关的词语配对，形成韵律</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">传统语文启蒙经典，通过自然景物的对仗帮助建立对仗和押韵的语感。<div class="technique-row"><span class="tag-technique">对仗</span></div></div></div></div>
+    <div class="theme-row"><span class="theme-tag">蒙学</span><span class="theme-tag">对韵</span><span class="theme-tag">启蒙</span></div></div></div>
+
+<div class="poem-card" data-grade="1" data-genre="meng" data-search="珍惜时间谚语">
+  <div class="poem-card-header"><div class="poem-idx g1">M2</div><div><div class="poem-title">珍惜时间谚语</div><div class="poem-subtitle">一年级上册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">一年之计在于春，一日之计在于晨。</span><br><span class="hl-sentence">一寸光阴一寸金，寸金难买寸光阴。</span></div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">光阴</span><span class="note-def">时间</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">从一年到一日到光阴本身，层层递进。"一寸光阴一寸金"以黄金喻时间之贵，而"寸金难买寸光阴"更进一步——黄金可再得，时间不可追。<div class="technique-row"><span class="tag-technique">比喻</span><span class="tag-technique">对比</span></div></div></div></div>
+    <div class="theme-row"><span class="theme-tag">惜时</span><span class="theme-tag">谚语</span><span class="theme-tag">哲理</span></div></div></div>
+
+<div class="poem-card" data-grade="1" data-genre="meng" data-search="天气谚语">
+  <div class="poem-card-header"><div class="poem-idx g1">M3</div><div><div class="poem-title">天气谚语</div><div class="poem-subtitle">一年级下册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">朝霞不出门，晚霞行千里。</span><br>有雨山戴帽，无雨半山腰。<br>早晨下雨当日晴，晚上下雨到天明。<br><span class="hl-sentence">蚂蚁搬家蛇过道，大雨不久要来到。</span></div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">朝霞/晚霞</span><span class="note-def">早晨彩霞预示阴雨，傍晚彩霞预示晴好</span></div><div class="note-item"><span class="note-term">山戴帽</span><span class="note-def">云雾遮住山顶，预示下雨</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">古人长期观察自然总结的气象经验，体现"天人合一"智慧，至今仍有实用价值。</div></div></div>
+    <div class="theme-row"><span class="theme-tag">自然</span><span class="theme-tag">谚语</span><span class="theme-tag">观察</span></div></div></div>
 </div><!-- /g1 -->
 
 <!-- ==================== 二年级 ==================== -->
@@ -1255,6 +1294,29 @@ body {
   </div>
 </div>
 
+
+<div class="semester-label">📝 日积月累 · 名言警句</div>
+
+<div class="poem-card" data-grade="2" data-genre="meng" data-search="读书名言三则">
+  <div class="poem-card-header"><div class="poem-idx g2">M4</div><div><div class="poem-title">读书名言三则</div><div class="poem-subtitle">二年级上册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">书籍是人类进步的阶梯。</span>——高尔基<br><span class="hl-sentence">读书破万卷，下笔如有神。</span>——杜甫<br><span class="hl-sentence">书山有路勤为径，学海无涯苦作舟。</span></div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">破万卷</span><span class="note-def">读透很多书（"破"指读透/翻破）</span></div><div class="note-item"><span class="note-term">如有神</span><span class="note-def">好像有神助一般</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">三句从不同角度论读书。高尔基强调书的作用，杜甫强调多读对写作的帮助，对联式名言强调勤奋是唯一途径。考试常考填空。<div class="technique-row"><span class="tag-technique">比喻</span><span class="tag-technique">对仗</span></div></div></div></div>
+    <div class="theme-row"><span class="theme-tag">勤学</span><span class="theme-tag">读书</span><span class="theme-tag">名言</span></div></div></div>
+
+<div class="poem-card" data-grade="2" data-genre="meng" data-search="弟子规（节选）">
+  <div class="poem-card-header"><div class="poem-idx g2">M5</div><div><div class="poem-title">弟子规（节选）</div><div class="poem-subtitle">二年级下册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text">冠必正，纽必结，袜与履，俱紧切。<br>置冠服，有定位，勿乱顿，致污秽。<br><span class="hl-sentence">唯德学，唯才艺，不如人，当自砺。</span><br><span class="hl-sentence">若衣服，若饮食，不如人，勿生戚。</span></div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">自砺</span><span class="note-def">自我勉励</span></div><div class="note-item"><span class="note-term">勿生戚</span><span class="note-def">不要感到忧伤</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">先讲仪容整洁，后讲品德学问。核心是"重德才轻物质"——品德才艺不如人要发奋，衣服饮食不如人不必在意。<div class="technique-row"><span class="tag-technique">对比</span></div></div></div></div>
+    <div class="theme-row"><span class="theme-tag">修身</span><span class="theme-tag">品德</span><span class="theme-tag">蒙学</span></div></div></div>
+
+<div class="poem-card" data-grade="2" data-genre="meng" data-search="二十四节气歌">
+  <div class="poem-card-header"><div class="poem-idx g2">M6</div><div><div class="poem-title">二十四节气歌</div><div class="poem-subtitle">二年级下册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">春雨惊春清谷天，夏满芒夏暑相连。</span><br><span class="hl-sentence">秋处露秋寒霜降，冬雪雪冬小大寒。</span></div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">每句六节气</span><span class="note-def">两句共二十四节气，涵盖春夏季秋冬各六</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">朗朗上口的节气速记歌诀。中国古代农业文明的智慧结晶，2016年列入联合国非遗名录。</div></div></div>
+    <div class="theme-row"><span class="theme-tag">节气</span><span class="theme-tag">传统</span><span class="theme-tag">歌诀</span></div></div></div>
 </div><!-- /g2 -->
 
 <!-- ==================== 三年级 ==================== -->
@@ -1504,6 +1566,29 @@ body {
   </div>
 </div>
 
+
+<div class="semester-label">📝 日积月累 · 名言警句</div>
+
+<div class="poem-card" data-grade="3" data-genre="meng" data-search="关于"理"的谚语">
+  <div class="poem-card-header"><div class="poem-idx g3">M7</div><div><div class="poem-title">关于"理"的谚语</div><div class="poem-subtitle">三年级上册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">灯不拨不亮，理不辩不明。</span><br><span class="hl-sentence">有理走遍天下，无理寸步难行。</span><br>一时强弱在于力，万古胜负在于理。</div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">拨</span><span class="note-def">挑动灯芯使更亮</span></div><div class="note-item"><span class="note-term">万古</span><span class="note-def">长远的，最终的</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">以"灯拨才亮"比喻"理辩才明"，教育学生明辨是非、以理服人。</div></div></div>
+    <div class="theme-row"><span class="theme-tag">哲理</span><span class="theme-tag">谚语</span><span class="theme-tag">说理</span></div></div></div>
+
+<div class="poem-card" data-grade="3" data-genre="meng" data-search="传统文化常识">
+  <div class="poem-card-header"><div class="poem-idx g3">M8</div><div><div class="poem-title">传统文化常识</div><div class="poem-subtitle">三年级下册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">文房四宝：笔墨纸砚</span><br><span class="hl-sentence">雅人四好：琴棋书画</span><br><span class="hl-sentence">花中君子：梅兰竹菊</span><br><span class="hl-sentence">中医四诊：望闻问切</span></div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">花中君子</span><span class="note-def">梅(傲雪)、兰(幽香)、竹(有节)、菊(凌霜)</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">四组"四字"传统文化常识，分别概括文人用品、修养、品格象征和医学诊断。考试常以填空题出现。</div></div></div>
+    <div class="theme-row"><span class="theme-tag">常识</span><span class="theme-tag">文化</span><span class="theme-tag">传统</span></div></div></div>
+
+<div class="poem-card" data-grade="3" data-genre="meng" data-search="改过名言三则">
+  <div class="poem-card-header"><div class="poem-idx g3">M9</div><div><div class="poem-title">改过名言三则</div><div class="poem-subtitle">三年级下册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">见善则迁，有过则改。</span>——《周易》<br><span class="hl-sentence">过而不改，是谓过矣。</span>——《论语》<br><span class="hl-sentence">人谁无过？过而能改，善莫大焉。</span>——《左传》</div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">迁</span><span class="note-def">向……靠拢，学习</span></div><div class="note-item"><span class="note-term">善莫大焉</span><span class="note-def">没有比这更好的了</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">三层递进：见善要学→不改才是真错→能改就是最好的。出自《周易》《论语》《左传》三部经典。</div></div></div>
+    <div class="theme-row"><span class="theme-tag">修身</span><span class="theme-tag">改过</span><span class="theme-tag">名言</span></div></div></div>
 </div><!-- /g3 -->
 
 <!-- ==================== 四年级 ==================== -->
@@ -1667,6 +1752,22 @@ body {
       <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">关于李白少年求学的励志传说。老妇人要把铁棒磨成绣花针，看似荒谬却蕴含着"只要功夫深，铁杵磨成针"的哲理。李白由此幡然醒悟，返回完成学业——以小故事承载大道理，是传统励志教育的经典文本。</div></div></div>
     <div class="theme-row"><span class="theme-tag">勤学</span><span class="theme-tag">励志</span><span class="theme-tag">李白</span><span class="theme-tag">文言文</span></div></div></div>
 
+
+<div class="semester-label">📝 日积月累 · 名言警句</div>
+
+<div class="poem-card" data-grade="4" data-genre="meng" data-search="勤学好问名言">
+  <div class="poem-card-header"><div class="poem-idx g4">M10</div><div><div class="poem-title">勤学好问名言</div><div class="poem-subtitle">四年级上册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">好问则裕，自用则小。</span>——《尚书》<br><span class="hl-sentence">博学之，审问之，慎思之，明辨之，笃行之。</span>——《礼记》<br>智能之士，不学不成，不问不知。——王充<br><span class="hl-sentence">人非生而知之者，孰能无惑？</span>——韩愈</div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">裕</span><span class="note-def">丰富</span></div><div class="note-item"><span class="note-term">自用</span><span class="note-def">自以为是</span></div><div class="note-item"><span class="note-term">孰</span><span class="note-def">谁</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">《礼记》"博学→审问→慎思→明辨→笃行"五步学习法至今仍有指导意义。韩愈"人非生而知之者，孰能无惑"出自《师说》。</div></div></div>
+    <div class="theme-row"><span class="theme-tag">勤学</span><span class="theme-tag">好问</span><span class="theme-tag">名言</span></div></div></div>
+
+<div class="poem-card" data-grade="4" data-genre="meng" data-search="自强不息名言">
+  <div class="poem-card-header"><div class="poem-idx g4">M11</div><div><div class="poem-title">自强不息名言</div><div class="poem-subtitle">四年级下册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">天行健，君子以自强不息。</span>——《周易》<br><span class="hl-sentence">胜人者有力，自胜者强。</span>——《老子》<br>不怨天，不尤人。——《论语》<br>生于忧患而死于安乐。——《孟子》</div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">天行健</span><span class="note-def">天道运行刚健永不停息</span></div><div class="note-item"><span class="note-term">自胜</span><span class="note-def">战胜自己</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">最难战胜的不是别人而是自己("自胜者强")，身处忧患反而能磨练意志("生于忧患而死于安乐")。</div></div></div>
+    <div class="theme-row"><span class="theme-tag">自强</span><span class="theme-tag">修身</span><span class="theme-tag">名言</span></div></div></div>
 </div><!-- /g4 -->
 
 <!-- ==================== 五年级 ==================== -->
@@ -1845,6 +1946,22 @@ body {
       <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">九岁孩童以机智幽默应对宾客的故事。孔君平以"杨梅"调侃"此是君家果"（暗指杨姓），杨氏子不假思索以"未闻孔雀是夫子家禽"巧妙回击——以对方的姓氏反将一军。语言委婉有礼而不失锋芒，展现了魏晋名士推崇的机敏与风雅。</div></div></div>
     <div class="theme-row"><span class="theme-tag">故事</span><span class="theme-tag">智慧</span><span class="theme-tag">幽默</span></div></div></div>
 
+
+<div class="semester-label">📝 日积月累 · 名言警句</div>
+
+<div class="poem-card" data-grade="5" data-genre="meng" data-search="勤俭节约名言">
+  <div class="poem-card-header"><div class="poem-idx g5">M12</div><div><div class="poem-title">勤俭节约名言</div><div class="poem-subtitle">五年级上册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">夫君子之行，静以修身，俭以养德。</span>——诸葛亮<br><span class="hl-sentence">非淡泊无以明志，非宁静无以致远。</span>——诸葛亮<br>居安思危，戒奢以俭。——魏征<br><span class="hl-sentence">由俭入奢易，由奢入俭难。</span>——司马光<br>一粥一饭，当思来处不易。——朱柏庐</div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">淡泊</span><span class="note-def">不追求名利</span></div><div class="note-item"><span class="note-term">致远</span><span class="note-def">达到远大的目标</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">诸葛亮《诫子书》的"静以修身，俭以养德""非淡泊无以明志，非宁静无以致远"是千古名句。司马光点出人性弱点。</div></div></div>
+    <div class="theme-row"><span class="theme-tag">修身</span><span class="theme-tag">节俭</span><span class="theme-tag">名言</span></div></div></div>
+
+<div class="poem-card" data-grade="5" data-genre="meng" data-search="年龄的别称">
+  <div class="poem-card-header"><div class="poem-idx g5">M13</div><div><div class="poem-title">年龄的别称</div><div class="poem-subtitle">五年级下册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">豆蔻年华：女子十三四岁</span><br>及笄：女子十五岁<br>弱冠：男子二十岁<br><span class="hl-sentence">而立：三十岁 | 不惑：四十岁</span><br><span class="hl-sentence">花甲：六十岁 | 古稀：七十岁</span><br>期颐：一百岁</div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">出处</span><span class="note-def">"三十而立，四十而不惑"出自《论语》</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">中国文化对不同人生阶段的雅称，源于《论语》中孔子自述。考试常考填空题。</div></div></div>
+    <div class="theme-row"><span class="theme-tag">常识</span><span class="theme-tag">文化</span><span class="theme-tag">年龄</span></div></div></div>
 </div><!-- /g5 -->
 
 <!-- ==================== 六年级 ==================== -->
@@ -2071,6 +2188,22 @@ body {
       <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">以惜春为主题的婉约词。诗人像寻找失踪的朋友一样寻觅春天的踪迹——先问人，再问黄鹂，黄鹂百啭却无人能解其意，最后"因风飞过蔷薇"——蔷薇花开意味着盛夏将至，春天确实已经远去。全词以"问春"为主线，将惜春之情写得一波三折。</div></div></div>
     <div class="theme-row"><span class="theme-tag">山水</span><span class="theme-tag">春</span><span class="theme-tag">惜春</span><span class="theme-tag">词</span></div></div></div>
 
+
+<div class="semester-label">📝 日积月累 · 名言警句</div>
+
+<div class="poem-card" data-grade="6" data-genre="meng" data-search="爱国名言四则">
+  <div class="poem-card-header"><div class="poem-idx g6">M14</div><div><div class="poem-title">爱国名言四则</div><div class="poem-subtitle">六年级上册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">鞠躬尽瘁，死而后已。</span>——诸葛亮<br><span class="hl-sentence">捐躯赴国难，视死忽如归。</span>——曹植<br><span class="hl-sentence">祖宗疆土，当以死守，不可以尺寸与人。</span>——李纲<br><span class="hl-sentence">位卑未敢忘忧国。</span>——陆游</div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">鞠躬尽瘁</span><span class="note-def">竭尽心力，不辞劳苦</span></div><div class="note-item"><span class="note-term">位卑</span><span class="note-def">地位卑微</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">四句跨越三国→魏晋→宋→南宋，完整表达中华爱国传统：鞠躬尽瘁→视死如归→寸土不让→位卑忧国。考试高频填空默写题。</div></div></div>
+    <div class="theme-row"><span class="theme-tag">爱国</span><span class="theme-tag">名言</span><span class="theme-tag">必考</span></div></div></div>
+
+<div class="poem-card" data-grade="6" data-genre="meng" data-search="变革创新名言">
+  <div class="poem-card-header"><div class="poem-idx g6">M15</div><div><div class="poem-title">变革创新名言</div><div class="poem-subtitle">六年级下册 · 日积月累</div></div><div class="poem-meta"><span class="meta-badge b-meng">名言警句</span></div></div>
+  <div class="poem-body"><div class="poem-text"><span class="hl-sentence">穷则变，变则通，通则久。</span>——《周易》<br><span class="hl-sentence">苟日新，日日新，又日新。</span>——《礼记》<br><span class="hl-sentence">青，取之于蓝而青于蓝。</span>——《荀子》<br>苟利于民，不必法古；苟周于事，不必循旧。——《淮南子》</div>
+    <div class="poem-details"><div class="detail-box"><h4><span class="dot"></span>重点注释</h4><div class="content"><div class="note-item"><span class="note-term">穷则变</span><span class="note-def">事物到了尽头就要变化</span></div><div class="note-item"><span class="note-term">青出于蓝</span><span class="note-def">比喻学生超过老师，成语出处</span></div></div></div>
+    <div class="detail-box"><h4><span class="dot"></span>赏析讲解</h4><div class="content">"穷则变"讲变革必要性，"苟日新"讲自我革新，"青出于蓝"讲后人胜前人。成语"青出于蓝而胜于蓝"源于《荀子》。</div></div></div>
+    <div class="theme-row"><span class="theme-tag">创新</span><span class="theme-tag">变革</span><span class="theme-tag">名言</span></div></div></div>
 </div><!-- /g6 -->
 
 </main>
@@ -2079,24 +2212,36 @@ body {
 <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-// Search
+// Unified Search + Filter (fixed)
+let currentFilter = 'all';
 function doSearch() {
   const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  applyFilters(q);
+}
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.navbar .btn-mini[data-filter]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  applyFilters(q);
+}
+function applyFilters(q) {
+  if (q === undefined) q = document.getElementById('searchInput').value.trim().toLowerCase();
   const cards = document.querySelectorAll('.poem-card');
   let found = 0;
   cards.forEach(c => {
-    const txt = (c.dataset.search || '') + (c.textContent || '');
-    if (!q || txt.toLowerCase().includes(q)) { c.style.display = ''; found++; }
+    const matchGenre = currentFilter === 'all' || c.dataset.genre === currentFilter || (currentFilter === 'wen' && (c.dataset.genre === 'wen' || c.dataset.genre === 'meng'));
+    const searchText = (c.dataset.search || '') + ' ' + (c.textContent || '');
+    const matchSearch = !q || searchText.toLowerCase().includes(q);
+    if (matchGenre && matchSearch) { c.style.display = ''; found++; }
     else { c.style.display = 'none'; }
   });
-  // Hide empty grade sections
   document.querySelectorAll('[id^="g"]').forEach(g => {
     const visible = g.querySelectorAll('.poem-card:not([style*="display: none"])').length;
     const heading = g.querySelector('.grade-heading');
     const labels = g.querySelectorAll('.semester-label');
     if (heading) heading.style.display = visible > 0 ? '' : 'none';
     labels.forEach(l => {
-      // Check if any cards after this label and before next label are visible
       const nextLabel = Array.from(g.querySelectorAll('.semester-label')).find(x => x.compareDocumentPosition(l) === Node.DOCUMENT_POSITION_FOLLOWING);
       let hasVisible = false;
       let el = l.nextElementSibling;
@@ -2107,82 +2252,8 @@ function doSearch() {
       l.style.display = hasVisible ? '' : 'none';
     });
   });
-  document.getElementById('noResult').style.display = (q && found === 0) ? '' : 'none';
-}
-
-// Genre filter
-let currentFilter = 'all';
-function setFilter(f, btn) {
-  currentFilter = f;
-  document.querySelectorAll('.navbar .btn-mini[data-filter]').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  applyFilters();
-}
-function applyFilters() {
-  const q = document.getElementById('searchInput').value.trim().toLowerCase();
-  const cards = document.querySelectorAll('.poem-card');
-  let found = 0;
-  cards.forEach(c => {
-    const matchGenre = currentFilter === 'all' || c.dataset.genre === currentFilter || (currentFilter === 'wen' && (c.dataset.genre === 'wen' || c.dataset.genre === 'meng'));
-    const matchSearch = !q || (c.dataset.search || '' + c.textContent || '').toLowerCase().includes(q);
-    if (matchGenre && matchSearch) { c.style.display = ''; found++; }
-    else { c.style.display = 'none'; }
-  });
   document.getElementById('noResult').style.display = ((q || currentFilter !== 'all') && found === 0) ? '' : 'none';
 }
-
-// Sidebar
-function setSidebarActive(el) {
-  document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
-  el.classList.add('active');
-}
-
-// Back to top
-window.addEventListener('scroll', () => {
-  document.getElementById('backTop').classList.toggle('show', window.scrollY > 500);
-});
-
-// Intersection Observer for sidebar highlight
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const id = e.target.id;
-      if (id && id.startsWith('g')) {
-        document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
-        const link = document.querySelector(`.sidebar-nav a[href="#${id}"]`);
-        if (link) link.classList.add('active');
-      }
-    }
-  });
-}, { rootMargin: '-20% 0px -70% 0px' });
-document.querySelectorAll('[id^="g"]').forEach(s => observer.observe(s));
-
-
-// Load recited state on init
-loadReciteState();
-
-// Checkbox persistence
-function toggleRecite(cb) {
-  var card = cb.closest('.poem-card');
-  if (cb.checked) { card.classList.add('recited'); }
-  else { card.classList.remove('recited'); }
-  saveReciteState();
-}
-function saveReciteState() {
-  var checked = [];
-  document.querySelectorAll('.recite-check:checked').forEach(function(c) { checked.push(c.dataset.id); });
-  localStorage.setItem('poem-recited', JSON.stringify(checked));
-}
-function loadReciteState() {
-  try {
-    var checked = JSON.parse(localStorage.getItem('poem-recited') || '[]');
-    checked.forEach(function(id) {
-      var cb = document.querySelector('.recite-check[data-id="' + id + '"]');
-      if (cb) { cb.checked = true; cb.closest('.poem-card').classList.add('recited'); }
-    });
-  } catch(e) {}
-}
-document.addEventListener('DOMContentLoaded', loadReciteState);
 
 // Update sidebar active
 
