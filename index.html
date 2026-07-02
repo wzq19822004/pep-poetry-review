@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小学语文 · 古诗文名言复习手册（部编版1-6年级）</title>
+<style>
+:root {
+  --bg: #faf8f2;
+  --card: #fffef9;
+  --border: #e8e0d0;
+  --text: #2c2416;
+  --text2: #6b5e4a;
+  --accent: #8b4513;
+  --tag-poem: #4a6741;
+  --tag-ci: #6b3a6b;
+  --tag-prose: #3a5a8c;
+  --tag-quote: #8b5a2b;
+  --grade-1: #e8f5e9;
+  --grade-2: #fff3e0;
+  --grade-3: #e3f2fd;
+  --grade-4: #fce4ec;
+  --grade-5: #f3e5f5;
+  --grade-6: #e0f2f1;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.8;
+}
+/* ── Header ── */
+.header {
+  background: linear-gradient(135deg, #5c3d2e 0%, #8b5e3c 50%, #a67c52 100%);
+  color: #fff; padding: 48px 24px 36px; text-align: center;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,0,0,.15);
+}
+.header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+.header p { opacity: .85; font-size: 14px; }
+/* ── Toolbar ── */
+.toolbar {
+  display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+  padding: 16px 20px; background: #fff; border-bottom: 1px solid var(--border);
+  position: sticky; top: 120px; z-index: 99;
+}
+.toolbar input {
+  flex: 1; min-width: 200px; max-width: 400px;
+  padding: 10px 16px; border: 2px solid var(--border); border-radius: 24px;
+  font-size: 15px; outline: none; transition: border-color .2s;
+  font-family: inherit;
+}
+.toolbar input:focus { border-color: var(--accent); }
+.toolbar select, .toolbar button {
+  padding: 10px 16px; border: 2px solid var(--border); border-radius: 24px;
+  font-size: 14px; font-family: inherit; cursor: pointer; background: #fff;
+  transition: all .2s;
+}
+.toolbar select:hover, .toolbar button:hover { border-color: var(--accent); }
+.toolbar .btn-active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.stats { font-size: 13px; color: var(--text2); padding: 4px 12px; line-height: 40px; }
+/* ── Grade Sections ── */
+.container { max-width: 900px; margin: 0 auto; padding: 24px 16px 60px; }
+.grade-section { margin-bottom: 40px; }
+.grade-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 20px; border-radius: 12px; cursor: pointer;
+  margin-bottom: 4px; user-select: none; transition: background .2s;
+}
+.grade-header:hover { filter: brightness(.97); }
+.grade-num {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 18px; color: #fff;
+  flex-shrink: 0;
+}
+.g1 .grade-num { background: #4caf50; } .g2 .grade-num { background: #ff9800; }
+.g3 .grade-num { background: #2196f3; } .g4 .grade-num { background: #e91e63; }
+.g5 .grade-num { background: #9c27b0; } .g6 .grade-num { background: #00897b; }
+.grade-title { font-size: 19px; font-weight: 700; }
+.grade-count { font-size: 13px; color: var(--text2); margin-left: auto; }
+.grade-arrow { font-size: 14px; transition: transform .3s; color: var(--text2); }
+.grade-section.collapsed .grade-arrow { transform: rotate(-90deg); }
+.grade-section.collapsed .grade-content { display: none; }
+.grade-content { padding: 0 0 16px; }
+/* ── Semester Tabs ── */
+.sem-tabs { display: flex; gap: 4px; margin-bottom: 16px; padding: 0 8px; }
+.sem-tab {
+  padding: 6px 20px; border-radius: 20px; font-size: 13px;
+  cursor: pointer; border: 1px solid var(--border); background: #fff;
+  transition: all .2s; font-family: inherit;
+}
+.sem-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+/* ── Entry Cards ── */
+.entry-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px 24px; margin-bottom: 12px;
+  transition: box-shadow .2s;
+}
+.entry-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+.entry-header { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.entry-type {
+  font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 600;
+  color: #fff; white-space: nowrap;
+}
+.type-poem { background: var(--tag-poem); }
+.type-ci { background: var(--tag-ci); }
+.type-prose { background: var(--tag-prose); }
+.type-quote { background: var(--tag-quote); }
+.entry-title { font-size: 20px; font-weight: 700; }
+.entry-author { font-size: 14px; color: var(--text2); }
+.entry-dynasty { font-size: 12px; color: var(--text2); background: #f5f0e8; padding: 1px 8px; border-radius: 8px; }
+.entry-text {
+  background: linear-gradient(135deg, #fdfcf7 0%, #f8f4ea 100%);
+  border-left: 4px solid var(--accent);
+  padding: 16px 20px; border-radius: 0 8px 8px 0;
+  font-size: 17px; line-height: 2.2; margin: 12px 0;
+  font-family: 'STKaiti', 'KaiTi', '楷体', 'Noto Serif SC', serif;
+  letter-spacing: 1px;
+}
+.entry-notes { margin-top: 10px; }
+.entry-notes summary {
+  font-size: 14px; font-weight: 600; color: var(--accent); cursor: pointer;
+  padding: 4px 0;
+}
+.entry-notes summary:hover { text-decoration: underline; }
+.entry-notes .notes-content {
+  margin-top: 8px; font-size: 14px; line-height: 1.9;
+  color: var(--text2); padding: 12px 16px; background: #fdfcf9;
+  border-radius: 8px; border: 1px dashed var(--border);
+}
+.entry-notes .notes-content p { margin-bottom: 6px; }
+.entry-notes .notes-content strong { color: var(--accent); }
+.highlight { background: linear-gradient(transparent 60%, #ffe082 60%); padding: 0 2px; }
+/* ── Footer ── */
+.footer {
+  text-align: center; padding: 32px; color: var(--text2);
+  font-size: 13px; border-top: 1px solid var(--border);
+}
+/* ── Print ── */
+@media print {
+  .header, .toolbar { position: static; }
+  .entry-card { break-inside: avoid; page-break-inside: avoid; }
+  .grade-section { break-before: page; }
+  body { font-size: 12px; }
+}
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .header { padding: 28px 16px 24px; }
+  .header h1 { font-size: 22px; }
+  .toolbar { top: 90px; padding: 10px 12px; }
+  .entry-card { padding: 14px 16px; }
+  .entry-title { font-size: 17px; }
+  .entry-text { font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📚 小学语文 · 古诗文名言复习手册</h1>
+  <p>部编版（人教版）1–6年级 ｜ 古诗 · 词 · 文言文 · 名言警句 ｜ 全文 + 注释 + 讲解</p>
+</div>
+
+<div class="toolbar">
+  <input type="text" id="searchInput" placeholder="🔍 搜索诗名、作者、诗句…" oninput="filterAll()">
+  <select id="typeFilter" onchange="filterAll()">
+    <option value="all">全部类型</option>
+    <option value="poem">古诗</option>
+    <option value="ci">词</option>
+    <option value="prose">文言文</option>
+    <option value="quote">名言警句</option>
+  </select>
+  <button id="expandAllBtn" onclick="toggleAll(true)">展开全部</button>
+  <button id="collapseAllBtn" onclick="toggleAll(false)">折叠全部</button>
+  <span class="stats" id="statsDisplay"></span>
+</div>
+
+<div class="container" id="content">
+
+<!-- ═══════════ 一年级 ═══════════ -->
+<div class="grade-section g1" data-grade="1">
+<div class="grade-header" onclick="this.parentElement.classList.toggle('collapsed')">
+  <div class="grade-num">一</div>
+  <div class="grade-title">一年级</div>
+  <div class="grade-count grade-counter">—</div>
+  <div class="grade-arrow">▼</div>
+</div>
+<div class="grade-content">
+
+<div class="sem-tabs">
+  <button class="sem-tab active" onclick="switchSem(this,'sem-g1-1')">上册</button>
+  <button class="sem-tab" onclick="switchSem(this,'sem-g1-2')">下册</button>
+</div>
+
+<div id="sem-g1-1">
+<!-- 一上 -->
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">咏鹅</span>
+    <span class="entry-author">【唐】骆宾王</span>
+  </div>
+  <div class="entry-text">鹅，鹅，鹅，<br>曲项向天歌。<br>白毛浮绿水，<br>红掌拨清波。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>曲项——弯曲的脖子；歌——鸣叫；拨——划动。</p>
+      <p><strong>讲解：</strong>七岁的骆宾王观察白鹅在水中嬉戏，用最简洁的语言描绘出鹅的形态、声音和色彩。"白毛""绿水""红掌""清波"色彩鲜明，是一幅生动的田园画卷。全诗天真活泼，是儿童学诗的启蒙之作。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">春晓</span>
+    <span class="entry-author">【唐】孟浩然</span>
+  </div>
+  <div class="entry-text">春眠不觉晓，<br>处处闻啼鸟。<br>夜来风雨声，<br>花落知多少。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>眠——睡觉；晓——天亮；闻——听到；啼鸟——鸟叫。</p>
+      <p><strong>讲解：</strong>春天的早晨，诗人睡得很香，不知不觉天已经亮了。醒来听到到处都是鸟儿的叫声。回想昨夜的风雨声，不知有多少花儿被吹落了。诗人用朴素的语言表达了对春天的喜爱和怜惜之情。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">静夜思</span>
+    <span class="entry-author">【唐】李白</span>
+  </div>
+  <div class="entry-text">床前明月光，<br>疑是地上霜。<br>举头望明月，<br>低头思故乡。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>疑——好像；举头——抬头。</p>
+      <p><strong>讲解：</strong>这是李白最脍炙人口的一首诗，也是中国最广为流传的古诗之一。深夜，月光洒在床前，白得好像地上的霜。抬头望着天上的明月，低头想起了远方的故乡。短短二十字，写出了游子浓浓的思乡之情。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">画</span>
+    <span class="entry-author">【唐】王维</span>
+  </div>
+  <div class="entry-text">远看山有色，<br>近听水无声。<br>春去花还在，<br>人来鸟不惊。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>色——颜色；惊——害怕、飞走。</p>
+      <p><strong>讲解：</strong>这是一首谜语诗，谜底就是"画"。远远看去山有颜色，走近听水却没有声音。春天过去了花还开着，人走近了鸟也不飞走。四句分别写画中的山、水、花、鸟，道出了画的逼真与绘画艺术的特点。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">悯农（其二）</span>
+    <span class="entry-author">【唐】李绅</span>
+  </div>
+  <div class="entry-text">锄禾日当午，<br>汗滴禾下土。<br>谁知盘中餐，<br>粒粒皆辛苦。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>禾——庄稼；日当午——太阳正当头顶（中午）；餐——饭食；皆——都。</p>
+      <p><strong>讲解：</strong>烈日当头的中午，农民还在田里锄草，汗水滴到泥土里。有谁知道碗里的每一粒米饭，都是农民辛苦劳动换来的？这首诗教育我们要珍惜粮食，尊重劳动人民。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">古朗月行（节选）</span>
+    <span class="entry-author">【唐】李白</span>
+  </div>
+  <div class="entry-text">小时不识月，<br>呼作白玉盘。<br>又疑瑶台镜，<br>飞在青云端。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>呼作——叫作；白玉盘——白玉做的盘子；疑——怀疑；瑶台——传说中神仙住的地方。</p>
+      <p><strong>讲解：</strong>小时候不认识月亮，把它叫作白玉盘。又怀疑是瑶台上的镜子，飞到了青云之上。诗人用儿童天真的想象，把月亮比作白玉盘和仙镜，充满了浪漫的想象力和童趣。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">风</span>
+    <span class="entry-author">【唐】李峤</span>
+  </div>
+  <div class="entry-text">解落三秋叶，<br>能开二月花。<br>过江千尺浪，<br>入竹万竿斜。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>解——能够、懂得；三秋——秋季的第三个月（深秋）；二月——农历二月（早春）。</p>
+      <p><strong>讲解：</strong>这也是一首谜语诗，谜底是"风"。风能吹落深秋的树叶，能吹开早春的花朵。刮过江面能掀起千尺巨浪，吹进竹林能让万竿翠竹倾斜。全诗没有一个"风"字，却处处写出风的力量。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="1" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">对韵歌</span>
+  </div>
+  <div class="entry-text">云对雨，雪对风。<br>花对树，鸟对虫。<br>山清对水秀，柳绿对桃红。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>这是启蒙对韵，帮助一年级学生建立对仗和押韵的语感。云对雨、雪对风是自然现象的对仗；花树、鸟虫是动植物的对仗；山清水秀、柳绿桃红是四字词语的对应。为后续学习对联和古诗对仗打好基础。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="1" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">珍惜时间名句</span>
+  </div>
+  <div class="entry-text">一年之计在于春，<br>一日之计在于晨。<br>一寸光阴一寸金，<br>寸金难买寸光阴。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>一年的计划要在春天就安排好，一天的计划要在早晨就安排好。一寸光阴和一寸黄金一样宝贵，但黄金却买不到光阴。这几句谚语告诉我们要珍惜时间，早做规划。</p>
+    </div>
+  </details>
+</div>
+</div><!-- /sem-g1-1 -->
+
+<div id="sem-g1-2" style="display:none">
+<!-- 一下 -->
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">春晓</span>
+    <span class="entry-author">【唐】孟浩然</span>
+  </div>
+  <div class="entry-text">春眠不觉晓，<br>处处闻啼鸟。<br>夜来风雨声，<br>花落知多少。</div>
+  <details class="entry-notes"><summary>📖 注释与讲解</summary><div class="notes-content"><p>参见一年级上册。</p></div></details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">村居</span>
+    <span class="entry-author">【清】高鼎</span>
+  </div>
+  <div class="entry-text">草长莺飞二月天，<br>拂堤杨柳醉春烟。<br>儿童散学归来早，<br>忙趁东风放纸鸢。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>拂堤——杨柳枝条轻拂堤岸；醉春烟——陶醉在春天的雾气中；散学——放学；纸鸢——风筝。</p>
+      <p><strong>讲解：</strong>早春二月，小草发芽，黄莺飞翔，杨柳轻拂堤岸。孩子们放学早，趁着东风放风筝。诗中描绘了春日乡村生机盎然的景象和儿童天真烂漫的生活。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">所见</span>
+    <span class="entry-author">【清】袁枚</span>
+  </div>
+  <div class="entry-text">牧童骑黄牛，<br>歌声振林樾。<br>意欲捕鸣蝉，<br>忽然闭口立。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>牧童——放牛的孩子；振——回荡；林樾——树林；意欲——心里想要；鸣蝉——叫着的知了。</p>
+      <p><strong>讲解：</strong>放牛娃骑在黄牛背上，歌声在树林里回荡。忽然想要捕捉树上鸣叫的知了，马上闭紧嘴巴，悄悄站住。全诗捕捉了一个极富童趣的瞬间，写出了牧童的天真活泼。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">小池</span>
+    <span class="entry-author">【宋】杨万里</span>
+  </div>
+  <div class="entry-text">泉眼无声惜细流，<br>树阴照水爱晴柔。<br>小荷才露尖尖角，<br>早有蜻蜓立上头。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>泉眼——泉水的出口；惜——爱惜；晴柔——晴天柔和的风光；尖尖角——初生的荷叶（未展开时呈尖角状）。</p>
+      <p><strong>讲解：</strong>泉眼好像爱惜细细的水流，树影映在水中，喜爱晴天的柔和。小荷叶刚刚露出尖尖的角，已经有蜻蜓立在上面。诗人用拟人手法，把小池写得充满生机和情趣。后两句是千古名句。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">池上</span>
+    <span class="entry-author">【唐】白居易</span>
+  </div>
+  <div class="entry-text">小娃撑小艇，<br>偷采白莲回。<br>不解藏踪迹，<br>浮萍一道开。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>小娃——小孩；撑——用篙撑船；艇——小船；不解——不懂得；踪迹——行踪痕迹。</p>
+      <p><strong>讲解：</strong>小孩撑着小船，偷偷采了白莲回来。他不知道怎样隐藏行踪，小船划过水面，浮萍被分开了一条路。诗人用幽默的笔调写出小孩子的天真可爱——做了"坏事"还留下了"证据"。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="1" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">画鸡</span>
+    <span class="entry-author">【明】唐寅</span>
+  </div>
+  <div class="entry-text">头上红冠不用裁，<br>满身雪白走将来。<br>平生不敢轻言语，<br>一叫千门万户开。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>裁——裁剪（引申为打扮）；平生——平时；轻——轻易；言语——指鸣叫。</p>
+      <p><strong>讲解：</strong>大公鸡头上红冠天然漂亮，满身雪白从容走来。它平时不轻易啼叫，一旦啼叫，千家万户都会打开门（迎接新的一天）。唐寅（唐伯虎）以鸡自喻，表达了不鸣则已、一鸣惊人的志向。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="1" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">天气谚语</span>
+  </div>
+  <div class="entry-text">朝霞不出门，晚霞行千里。<br>有雨山戴帽，无雨半山腰。<br>早晨下雨当日晴，晚上下雨到天明。<br>蚂蚁搬家蛇过道，大雨不久要来到。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>关于天气的民间谚语，教学生观察自然现象预测天气。朝霞预示有雨不宜出门；晚霞说明天气晴好。山被云雾遮住山顶（戴帽）预示下雨。这些都是古人智慧的结晶。</p>
+    </div>
+  </details>
+</div>
+</div><!-- /sem-g1-2 -->
+</div><!-- /grade-content -->
+</div><!-- /grade-1 -->
+
+<!-- ═══════════ 二年级 ═══════════ -->
+<div class="grade-section g2 collapsed" data-grade="2">
+<div class="grade-header" onclick="this.parentElement.classList.toggle('collapsed')">
+  <div class="grade-num">二</div>
+  <div class="grade-title">二年级</div>
+  <div class="grade-count grade-counter">—</div>
+  <div class="grade-arrow">▼</div>
+</div>
+<div class="grade-content">
+
+<div class="sem-tabs">
+  <button class="sem-tab active" onclick="switchSem(this,'sem-g2-1')">上册</button>
+  <button class="sem-tab" onclick="switchSem(this,'sem-g2-2')">下册</button>
+</div>
+
+<div id="sem-g2-1">
+<!-- 二上 -->
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">赠刘景文</span>
+    <span class="entry-author">【宋】苏轼</span>
+  </div>
+  <div class="entry-text">荷尽已无擎雨盖，<br>菊残犹有傲霜枝。<br>一年好景君须记，<br>最是橙黄橘绿时。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>擎——举起；雨盖——荷叶像雨伞；傲霜——不畏寒霜；君——您（指刘景文）。</p>
+      <p><strong>讲解：</strong>荷花谢了，连举着的荷叶也没了；菊花虽然残了，但仍有傲霜的枝条。请您记住，一年最好的景色正是橙黄橘绿的深秋时节。苏轼以此诗勉励朋友刘景文：虽然年纪大了（荷尽菊残），但正是人生最有收获（橙黄橘绿）的时候。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">山行</span>
+    <span class="entry-author">【唐】杜牧</span>
+  </div>
+  <div class="entry-text">远上寒山石径斜，<br>白云生处有人家。<br>停车坐爱枫林晚，<br>霜叶红于二月花。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>寒山——深秋的山；石径——石头小路；坐——因为；霜叶——经霜的枫叶；于——比。</p>
+      <p><strong>讲解：</strong>深秋时节，沿着弯弯曲曲的石子小路上山，白云飘浮的地方隐约有人家。因为喜爱傍晚的枫林景色而停车观赏，那经霜的枫叶比二月春花还要红艳。"霜叶红于二月花"是千古名句，表现了诗人对秋天独特的美学发现。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">回乡偶书</span>
+    <span class="entry-author">【唐】贺知章</span>
+  </div>
+  <div class="entry-text">少小离家老大回，<br>乡音无改鬓毛衰。<br>儿童相见不相识，<br>笑问客从何处来。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>偶书——偶然写的；少小——年轻时；老大——年老时；乡音——家乡口音；鬓毛衰——两鬓的头发变白变少。</p>
+      <p><strong>讲解：</strong>贺知章年轻时离开家乡，到86岁才回到故乡。家乡口音没变但两鬓已白。家乡的孩子不认识他，笑着问客人从哪里来。一"笑"字写出了儿童的天真，也反衬出诗人久别归乡的感慨和沧桑。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">赠汪伦</span>
+    <span class="entry-author">【唐】李白</span>
+  </div>
+  <div class="entry-text">李白乘舟将欲行，<br>忽闻岸上踏歌声。<br>桃花潭水深千尺，<br>不及汪伦送我情。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>将欲行——正要出发；踏歌——边走边唱（一种民间歌舞）；不及——比不上。</p>
+      <p><strong>讲解：</strong>李白正要乘船离开，忽然听到岸上传来汪伦边走边唱为他送行的歌声。桃花潭水即使有千尺深，也比不上汪伦送我的情谊深。用具体的"水深"来比抽象的"情深"，化无形为有形，是李白写友情的经典之作。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">草 / 赋得古原草送别</span>
+    <span class="entry-author">【唐】白居易</span>
+  </div>
+  <div class="entry-text">离离原上草，<br>一岁一枯荣。<br>野火烧不尽，<br>春风吹又生。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>离离——茂盛的样子；原——原野；枯荣——枯萎和茂盛。</p>
+      <p><strong>讲解：</strong>原野上的草长得非常茂盛，每年都会枯萎又茂盛。野火不能把它烧尽，春风吹来它又生长出来。小学生学的是前四句（全诗共八句），这四句赞美了野草顽强的生命力。"野火烧不尽，春风吹又生"成为代表不屈精神的千古名句。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">宿新市徐公店</span>
+    <span class="entry-author">【宋】杨万里</span>
+  </div>
+  <div class="entry-text">篱落疏疏一径深，<br>树头新绿未成阴。<br>儿童急走追黄蝶，<br>飞入菜花无处寻。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>篱落——篱笆；疏疏——稀疏；径——小路；急走——奔跑。</p>
+      <p><strong>讲解：</strong>稀疏的篱笆旁有一条深深的小路，树上的新叶还没有形成树荫。孩子奔跑着追赶黄色的蝴蝶，蝴蝶飞进金黄的油菜花丛中就再也找不到了。后两句极富童趣——黄蝶和黄花颜色一样，蝴蝶躲进去就"消失"了。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">望庐山瀑布</span>
+    <span class="entry-author">【唐】李白</span>
+  </div>
+  <div class="entry-text">日照香炉生紫烟，<br>遥看瀑布挂前川。<br>飞流直下三千尺，<br>疑是银河落九天。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>香炉——香炉峰（庐山峰名）；紫烟——日光照射水气呈现紫色烟雾；九天——天的最高处。</p>
+      <p><strong>讲解：</strong>阳光照射香炉峰升起紫色的烟雾，远远望去瀑布像白练挂在山前。飞奔的水流从三千尺高处直冲而下，让人怀疑是银河从九重天上落了下来。李白用极度夸张的手法写出了庐山瀑布的雄伟壮观，想象力惊人。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">绝句</span>
+    <span class="entry-author">【唐】杜甫</span>
+  </div>
+  <div class="entry-text">两个黄鹂鸣翠柳，<br>一行白鹭上青天。<br>窗含西岭千秋雪，<br>门泊东吴万里船。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>黄鹂——黄莺；白鹭——一种水鸟；西岭——成都西边的岷山；东吴——长江下游的江浙一带。</p>
+      <p><strong>讲解：</strong>两只黄鹂在翠绿的柳树间鸣叫，一行白鹭飞上了蓝天。从窗口可以看到岷山上千年不化的积雪，门前停泊着开往万里之外东吴的船只。四句诗写了四种景物，色彩鲜艳，远近结合，动静相宜，是杜甫最明丽欢快的作品。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">悯农（其一）</span>
+    <span class="entry-author">【唐】李绅</span>
+  </div>
+  <div class="entry-text">春种一粒粟，<br>秋收万颗子。<br>四海无闲田，<br>农夫犹饿死。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>粟——小米（泛指粮食）；四海——天下；闲田——荒废的田地；犹——仍然。</p>
+      <p><strong>讲解：</strong>春天种下一粒种子，秋天收获万颗粮食。天下没有荒废的田地，可是农民仍然会饿死。前两句写丰收，后两句笔锋一转，揭示了封建社会残酷的现实——即使风调雨顺、四海无闲田，劳动者依然食不果腹。深刻的社会批判之作。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="2" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">读书名言</span>
+  </div>
+  <div class="entry-text">书籍是人类进步的阶梯。——高尔基<br>读书破万卷，下笔如有神。——杜甫<br>书山有路勤为径，学海无涯苦作舟。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>三句读书名言。高尔基的话强调书籍的重要作用；杜甫的名句说明多读书对写作的帮助；"书山有路"的对联式名言强调勤奋和刻苦是求学的唯一途径。</p>
+    </div>
+  </details>
+</div>
+</div><!-- /sem-g2-1 -->
+
+<div id="sem-g2-2" style="display:none">
+<!-- 二下 -->
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">村居</span>
+    <span class="entry-author">【清】高鼎</span>
+  </div>
+  <div class="entry-text">草长莺飞二月天，<br>拂堤杨柳醉春烟。<br>儿童散学归来早，<br>忙趁东风放纸鸢。</div>
+  <details class="entry-notes"><summary>📖 注释与讲解</summary><div class="notes-content"><p>参见一年级下册。</p></div></details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">咏柳</span>
+    <span class="entry-author">【唐】贺知章</span>
+  </div>
+  <div class="entry-text">碧玉妆成一树高，<br>万条垂下绿丝绦。<br>不知细叶谁裁出，<br>二月春风似剪刀。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>碧玉——碧绿色的玉（形容柳树的翠绿）；妆——打扮；丝绦——丝带；裁——剪裁。</p>
+      <p><strong>讲解：</strong>高高的柳树像用碧玉装扮而成，千万条柳枝像垂下的绿色丝带。不知道这细细的柳叶是谁裁剪出来的？原来是二月春风这把"剪刀"。诗人把春风比作剪刀，想象新奇巧妙，成为咏柳的绝唱。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">赋得古原草送别</span>
+    <span class="entry-author">【唐】白居易</span>
+  </div>
+  <div class="entry-text">离离原上草，一岁一枯荣。<br>野火烧不尽，春风吹又生。</div>
+  <details class="entry-notes"><summary>📖 注释与讲解</summary><div class="notes-content"><p>参见二年级上册。</p></div></details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">舟夜书所见</span>
+    <span class="entry-author">【清】查慎行</span>
+  </div>
+  <div class="entry-text">月黑见渔灯，<br>孤光一点萤。<br>微微风簇浪，<br>散作满河星。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>书——写、记；渔灯——渔船上的灯火；孤光——孤独的灯光；簇——吹起。</p>
+      <p><strong>讲解：</strong>漆黑的夜晚看到一盏渔灯，孤零零的灯光像一只萤火虫。微风吹起波浪，灯光倒映在水面上，散开成为满河的星星。诗人捕捉了夜晚河上渔灯倒影的美丽瞬间——一点灯光"散作满河星"，化平凡为神奇。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">绝句</span>
+    <span class="entry-author">【唐】杜甫</span>
+  </div>
+  <div class="entry-text">迟日江山丽，<br>春风花草香。<br>泥融飞燕子，<br>沙暖睡鸳鸯。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>迟日——春天的太阳（日渐长）；泥融——泥土融化/松软；鸳鸯——一种水鸟。</p>
+      <p><strong>讲解：</strong>春天的太阳照耀得江山格外美丽，春风吹来花草的芳香。泥土松软了，燕子飞来飞去衔泥筑巢；沙洲被晒暖了，鸳鸯在上面安睡。四句写了四幅春日画面，对仗工整，春意盎然。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">晓出净慈寺送林子方</span>
+    <span class="entry-author">【宋】杨万里</span>
+  </div>
+  <div class="entry-text">毕竟西湖六月中，<br>风光不与四时同。<br>接天莲叶无穷碧，<br>映日荷花别样红。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>毕竟——到底；四时——春夏秋冬四季；无穷碧——一望无际的碧绿；别样——特别地。</p>
+      <p><strong>讲解：</strong>到底是六月的西湖啊，风光和其他季节完全不一样。接天的荷叶一望无际的碧绿，阳光映照下的荷花特别红艳。"接天莲叶无穷碧，映日荷花别样红"是咏西湖荷花的千古名句，写出了盛夏西湖荷花盛开的壮丽美景。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="2" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">悯农（其一）</span>
+    <span class="entry-author">【唐】李绅</span>
+  </div>
+  <div class="entry-text">春种一粒粟，秋收万颗子。<br>四海无闲田，农夫犹饿死。</div>
+  <details class="entry-notes"><summary>📖 注释与讲解</summary><div class="notes-content"><p>参见二年级上册。</p></div></details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="2" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">弟子规（节选）</span>
+  </div>
+  <div class="entry-text">冠必正，纽必结，袜与履，俱紧切。<br>置冠服，有定位，勿乱顿，致污秽。<br>唯德学，唯才艺，不如人，当自砺。<br>若衣服，若饮食，不如人，勿生戚。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>选自《弟子规》。帽子要戴端正，纽扣要扣好，袜子和鞋子都要穿整齐。放置衣帽要有固定位置，不要乱放弄脏。品德学问和才艺不如别人，应当自我勉励；衣服饮食不如别人，不要感到悲伤。教育孩子注重仪容整洁，重视品德学问胜过物质享受。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="2" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">二十四节气歌</span>
+  </div>
+  <div class="entry-text">春雨惊春清谷天，<br>夏满芒夏暑相连。<br>秋处露秋寒霜降，<br>冬雪雪冬小大寒。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>每句代表六个节气，共二十四个：立春、雨水、惊蛰、春分、清明、谷雨；立夏、小满、芒种、夏至、小暑、大暑；立秋、处暑、白露、秋分、寒露、霜降；立冬、小雪、大雪、冬至、小寒、大寒。是中国古代农业文明的智慧结晶。</p>
+    </div>
+  </details>
+</div>
+</div><!-- /sem-g2-2 -->
+</div><!-- /grade-content -->
+</div><!-- /grade-2 -->
+
+<!-- ═══════════ 三年级 ═══════════ -->
+<div class="grade-section g3 collapsed" data-grade="3">
+<div class="grade-header" onclick="this.parentElement.classList.toggle('collapsed')">
+  <div class="grade-num">三</div>
+  <div class="grade-title">三年级</div>
+  <div class="grade-count grade-counter">—</div>
+  <div class="grade-arrow">▼</div>
+</div>
+<div class="grade-content">
+
+<div class="sem-tabs">
+  <button class="sem-tab active" onclick="switchSem(this,'sem-g3-1')">上册</button>
+  <button class="sem-tab" onclick="switchSem(this,'sem-g3-2')">下册</button>
+</div>
+
+<div id="sem-g3-1">
+<!-- 三上 -->
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">所见</span>
+    <span class="entry-author">【清】袁枚</span>
+  </div>
+  <div class="entry-text">牧童骑黄牛，歌声振林樾。<br>意欲捕鸣蝉，忽然闭口立。</div>
+  <details class="entry-notes"><summary>📖 注释与讲解</summary><div class="notes-content"><p>参见一年级下册。</p></div></details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">山行</span>
+    <span class="entry-author">【唐】杜牧</span>
+  </div>
+  <div class="entry-text">远上寒山石径斜，白云生处有人家。<br>停车坐爱枫林晚，霜叶红于二月花。</div>
+  <details class="entry-notes"><summary>📖 注释与讲解</summary><div class="notes-content"><p>参见二年级上册。</p></div></details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">赠刘景文</span>
+    <span class="entry-author">【宋】苏轼</span>
+  </div>
+  <div class="entry-text">荷尽已无擎雨盖，菊残犹有傲霜枝。<br>一年好景君须记，最是橙黄橘绿时。</div>
+  <details class="entry-notes"><summary>📖 注释与讲解</summary><div class="notes-content"><p>参见二年级上册。</p></div></details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">夜书所见</span>
+    <span class="entry-author">【宋】叶绍翁</span>
+  </div>
+  <div class="entry-text">萧萧梧叶送寒声，<br>江上秋风动客情。<br>知有儿童挑促织，<br>夜深篱落一灯明。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>萧萧——风声；梧叶——梧桐树叶；动客情——打动游子的思乡之情；挑——拨弄；促织——蟋蟀；篱落——篱笆。</p>
+      <p><strong>讲解：</strong>萧萧的秋风吹动梧桐叶，带来了寒意，江上的秋风触动了诗人的思乡之情。知道有孩子在捉蟋蟀，因为深夜篱笆那边还有一盏灯亮着。诗人客居他乡，见到儿童挑促织的灯火，更加思念家乡。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">九月九日忆山东兄弟</span>
+    <span class="entry-author">【唐】王维</span>
+  </div>
+  <div class="entry-text">独在异乡为异客，<br>每逢佳节倍思亲。<br>遥知兄弟登高处，<br>遍插茱萸少一人。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>山东——华山以东（王维的家乡）；异客——他乡的客人；倍——更加；遥知——远远地想到；茱萸——一种有香味的植物（重阳节插戴辟邪）。</p>
+      <p><strong>讲解：</strong>王维17岁时独自在长安求学，重阳节时写下此诗。独自在异乡做客，每逢佳节就格外思念亲人。遥想家乡的兄弟们登高时，人人插着茱萸，唯独少了我一人。"每逢佳节倍思亲"成为中国人表达思亲之情的经典句子。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">望天门山</span>
+    <span class="entry-author">【唐】李白</span>
+  </div>
+  <div class="entry-text">天门中断楚江开，<br>碧水东流至此回。<br>两岸青山相对出，<br>孤帆一片日边来。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>天门山——安徽当涂的东梁山和西梁山的合称；中断——从中间断开；楚江——长江（流经楚地）；回——回旋。</p>
+      <p><strong>讲解：</strong>天门山被长江从中间劈开，碧绿的江水东流至此回旋。两岸的青山相对耸立，一叶孤舟从太阳那边驶来。李白用夸张的想象写出天门山的险峻和长江的磅礴气势。"孤帆一片日边来"画面感极强。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">饮湖上初晴后雨</span>
+    <span class="entry-author">【宋】苏轼</span>
+  </div>
+  <div class="entry-text">水光潋滟晴方好，<br>山色空蒙雨亦奇。<br>欲把西湖比西子，<br>淡妆浓抹总相宜。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>潋滟——水波闪动的样子；空蒙——雾气迷蒙；西子——西施（古代美女）；淡妆浓抹——淡妆和浓妆；相宜——合适。</p>
+      <p><strong>讲解：</strong>晴天时水波闪动正好看，雨天时山色迷蒙也很奇妙。想把西湖比作西施，不管是淡妆还是浓妆，她都是那么美丽。苏轼把西湖比作美女西施，从此西湖有了"西子湖"的美名。后两句成为千古绝唱。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">望洞庭</span>
+    <span class="entry-author">【唐】刘禹锡</span>
+  </div>
+  <div class="entry-text">湖光秋月两相和，<br>潭面无风镜未磨。<br>遥望洞庭山水翠，<br>白银盘里一青螺。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>和——和谐；潭面——湖面；镜未磨——未经打磨的铜镜（形容水面平静而带朦胧感）；青螺——青色的螺（比喻湖中的君山）。</p>
+      <p><strong>讲解：</strong>秋夜月光下洞庭湖的水光和月色相映成趣，湖面没有风，像一面未经打磨的铜镜。远远望去，洞庭山水翠绿，君山就像白银盘里的一只青螺。比喻新奇精妙，把浩大的洞庭湖比作白银盘，把君山比作青螺，极富想象力。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">早发白帝城</span>
+    <span class="entry-author">【唐】李白</span>
+  </div>
+  <div class="entry-text">朝辞白帝彩云间，<br>千里江陵一日还。<br>两岸猿声啼不住，<br>轻舟已过万重山。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>发——出发；白帝城——重庆奉节；朝——早晨；辞——告别；江陵——湖北荆州；还——到达；万重山——层层叠叠的山。</p>
+      <p><strong>讲解：</strong>李白被流放夜郎途中遇赦，从白帝城乘船返回，心情极其畅快。早晨告别云霞中的白帝城，千里之外的江陵一天就能到达。两岸猿声还在耳边回响，轻快的小船已经穿过了万重山。全诗洋溢着诗人遇赦后重获自由的喜悦之情。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">采莲曲</span>
+    <span class="entry-author">【唐】王昌龄</span>
+  </div>
+  <div class="entry-text">荷叶罗裙一色裁，<br>芙蓉向脸两边开。<br>乱入池中看不见，<br>闻歌始觉有人来。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>罗裙——丝罗做的裙子；一色——同样的颜色；芙蓉——荷花；乱入——混入。</p>
+      <p><strong>讲解：</strong>采莲女的罗裙和荷叶是一样的绿色，荷花映照着她们的脸庞。她们混入荷花池中就分不清了，听到歌声才发现有人在里面。诗人巧妙地把采莲女和荷花融为一体，人花难辨，充满诗情画意。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="3" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">司马光</span>
+  </div>
+  <div class="entry-text">群儿戏于庭，一儿登瓮，足跌没水中。众皆弃去，光持石击瓮破之，水迸，儿得活。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>庭——庭院；瓮——大缸；没——淹没；弃去——跑开；迸——涌出。</p>
+      <p><strong>讲解：</strong>一群孩子在院子里玩耍，一个孩子爬到大缸上，失足掉进水里被淹没。其他孩子都吓跑了，只有司马光拿着石头把缸砸破，水流出来，孩子得救了。这篇简短文言文讲述了司马光砸缸的故事，表现了司马光临危不惧、机智勇敢的品质。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="3" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">关于"理"的名言</span>
+  </div>
+  <div class="entry-text">灯不拨不亮，理不辩不明。<br>有理走遍天下，无理寸步难行。<br>一时强弱在于力，万古胜负在于理。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>三句关于讲道理的谚语。油灯不拨就不亮，道理不辩就不清楚。有道理走到哪里都行得通，没道理寸步难行。一时的强弱靠的是力量，而长久的胜负取决于道理。教育学生要明辨是非、以理服人。</p>
+    </div>
+  </details>
+</div>
+</div><!-- /sem-g3-1 -->
+
+<div id="sem-g3-2" style="display:none">
+<!-- 三下 -->
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">绝句</span>
+    <span class="entry-author">【唐】杜甫</span>
+  </div>
+  <div class="entry-text">迟日江山丽，春风花草香。<br>泥融飞燕子，沙暖睡鸳鸯。</div>
+  <details class="entry-notes"><summary>📖 注释与讲解</summary><div class="notes-content"><p>参见二年级下册。</p></div></details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">惠崇春江晚景</span>
+    <span class="entry-author">【宋】苏轼</span>
+  </div>
+  <div class="entry-text">竹外桃花三两枝，<br>春江水暖鸭先知。<br>蒌蒿满地芦芽短，<br>正是河豚欲上时。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>惠崇——宋代僧人，画家；蒌蒿——一种水草；芦芽——芦苇的嫩芽；河豚——一种味道鲜美但有毒的鱼；欲上——快要浮上水面。</p>
+      <p><strong>讲解：</strong>这是一首题画诗（题在惠崇所画的《春江晚景》上）。竹林外开了三两枝桃花，春天江水变暖，鸭子最先知道。满地蒌蒿，芦苇芽还很短，这正是河豚要浮上水面的时候。"春江水暖鸭先知"富含哲理——实践出真知。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">三衢道中</span>
+    <span class="entry-author">【宋】曾几</span>
+  </div>
+  <div class="entry-text">梅子黄时日日晴，<br>小溪泛尽却山行。<br>绿阴不减来时路，<br>添得黄鹂四五声。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>三衢——浙江衢州；梅子黄时——梅雨季节（初夏）；泛——乘船；却——又。</p>
+      <p><strong>讲解：</strong>梅子黄熟的季节天天放晴，乘船到了小溪尽头又改走山路。路上的绿荫不比来时少，还添了四五声黄鹂的叫声。诗人写初夏山中行走的所见所闻，清新自然，表达了出游的愉快心情。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">忆江南</span>
+    <span class="entry-author">【唐】白居易</span>
+  </div>
+  <div class="entry-text">江南好，风景旧曾谙。<br>日出江花红胜火，<br>春来江水绿如蓝。<br>能不忆江南？</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>谙——熟悉；江花——江边的花；蓝——蓝草（可制作靛蓝染料）。</p>
+      <p><strong>讲解：</strong>这是一首词（不是诗）。江南多美好啊，那里的风景我从前就很熟悉。太阳出来江边的花比火还红，春天来了江水绿得像蓝草。怎能不让人怀念江南呢？白居易曾任杭州和苏州刺史，离开江南后念念不忘，写下了这首千古名词。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">元日</span>
+    <span class="entry-author">【宋】王安石</span>
+  </div>
+  <div class="entry-text">爆竹声中一岁除，<br>春风送暖入屠苏。<br>千门万户曈曈日，<br>总把新桃换旧符。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>元日——正月初一；屠苏——屠苏酒（一种药酒）；曈曈——太阳初升光明温暖的样子；桃符——春联的前身（桃木板上画神像辟邪）。</p>
+      <p><strong>讲解：</strong>在爆竹声中旧的一年过去了，春风把暖气送到屠苏酒中。千家万户沐浴着新年的朝阳，都把旧桃符换成新的。王安石写此诗时正值推行变法，借新年万象更新来表达革新的政治理想。"总把新桃换旧符"寓意除旧迎新。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">清明</span>
+    <span class="entry-author">【唐】杜牧</span>
+  </div>
+  <div class="entry-text">清明时节雨纷纷，<br>路上行人欲断魂。<br>借问酒家何处有，<br>牧童遥指杏花村。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>纷纷——多而杂乱（形容雨细而密）；欲断魂——形容极度悲伤（像丢了魂似的）；借问——请问；遥指——指向远处。</p>
+      <p><strong>讲解：</strong>清明时节细雨纷纷，路上的行人心情悲伤。请问哪里有酒家可以歇脚避雨？牧童指向远处杏花深处的村庄。"杏花村"从此成为美酒的代名词。这首诗把清明的感伤气氛和春日田野的生机融合在一起，意境悠远。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">九月九日忆山东兄弟</span>
+    <span class="entry-author">【唐】王维</span>
+  </div>
+  <div class="entry-text">独在异乡为异客，每逢佳节倍思亲。<br>遥知兄弟登高处，遍插茱萸少一人。</div>
+  <details class="entry-notes"><summary>📖 注释与讲解</summary><div class="notes-content"><p>参见三年级上册。</p></div></details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="3" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">守株待兔</span>
+  </div>
+  <div class="entry-text">宋人有耕者。田中有株。兔走触株，折颈而死。因释其耒而守株，冀复得兔。兔不可复得，而身为宋国笑。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>株——树桩；走——跑；触——撞；释——放下；耒——农具；冀——希望；复——再次；身——自己。</p>
+      <p><strong>讲解：</strong>宋国有个农夫，田里有个树桩。一只兔子跑过来撞上树桩，脖子折断死了。农夫于是放下农具守在树桩旁，希望再得到兔子。兔子不能再得到，而他自己却被宋国人笑话。这个寓言告诉我们：不能把偶然当成必然，不能心存侥幸、不思进取。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="3" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">大林寺桃花</span>
+    <span class="entry-author">【唐】白居易</span>
+  </div>
+  <div class="entry-text">人间四月芳菲尽，<br>山寺桃花始盛开。<br>长恨春归无觅处，<br>不知转入此中来。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>芳菲——花草芳香；尽——完（指花谢了）；长恨——常常遗憾；觅——寻找。</p>
+      <p><strong>讲解：</strong>人间的四月百花已经凋谢，而大林寺的桃花才刚刚盛开。常常遗憾春天走了无处寻找，却不知它转到这山寺中来了。诗人把春天拟人化——仿佛春天跟人捉迷藏，躲到了山上。构思巧妙，趣味盎然。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="3" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">文房四宝 / 花中君子 等</span>
+  </div>
+  <div class="entry-text">文房四宝：笔墨纸砚<br>雅人四好：琴棋书画<br>花中君子：梅兰竹菊<br>中医四诊：望闻问切</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>传统文化常识。文房四宝是文人书房必备的四种文具；雅人四好是古代文人修养的四项技艺；花中君子——梅花、兰花、竹子、菊花，象征四种高洁品格；中医四诊是中医的四种诊断方法。帮助学生了解传统文化基础知识。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="3" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">改过名言</span>
+  </div>
+  <div class="entry-text">见善则迁，有过则改。——《周易》<br>过而不改，是谓过矣。——《论语》<br>人谁无过？过而能改，善莫大焉。——《左传》</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>迁——向……靠拢；过——过错；是谓——这叫做；善莫大焉——没有比这更好的了。</p>
+      <p><strong>讲解：</strong>三句古人关于知错就改的名言。看到好的就要学习，有了过错就要改正。有了过错而不改正，那才是真正的过错。人谁没有过错呢？犯了错能改正，没有比这更好的了。教育学生要勇于面对自己的错误并及时改正。</p>
+    </div>
+  </details>
+</div>
+</div><!-- /sem-g3-2 -->
+</div><!-- /grade-content -->
+</div><!-- /grade-3 -->
+
+<!-- ═══════════ 四年级 ═══════════ -->
+<div class="grade-section g4 collapsed" data-grade="4">
+<div class="grade-header" onclick="this.parentElement.classList.toggle('collapsed')">
+  <div class="grade-num">四</div>
+  <div class="grade-title">四年级</div>
+  <div class="grade-count grade-counter">—</div>
+  <div class="grade-arrow">▼</div>
+</div>
+<div class="grade-content">
+
+<div class="sem-tabs">
+  <button class="sem-tab active" onclick="switchSem(this,'sem-g4-1')">上册</button>
+  <button class="sem-tab" onclick="switchSem(this,'sem-g4-2')">下册</button>
+</div>
+
+<div id="sem-g4-1">
+<!-- 四上 -->
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">题西林壁</span>
+    <span class="entry-author">【宋】苏轼</span>
+  </div>
+  <div class="entry-text">横看成岭侧成峰，<br>远近高低各不同。<br>不识庐山真面目，<br>只缘身在此山中。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>题——题写；西林——西林寺（在庐山）；岭——连绵的山；峰——高耸的山尖；缘——因为。</p>
+      <p><strong>讲解：</strong>横看是连绵的山岭，侧看是高耸的山峰，从远近高低各处看都不相同。认不清庐山的真实面目，只因为自己身在这座山之中。这是一首哲理诗——"不识庐山真面目，只缘身在此山中"告诉我们：当局者迷，旁观者清，要想全面认识事物必须跳出局限。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">游山西村</span>
+    <span class="entry-author">【宋】陆游</span>
+  </div>
+  <div class="entry-text">莫笑农家腊酒浑，<br>丰年留客足鸡豚。<br>山重水复疑无路，<br>柳暗花明又一村。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>腊酒——腊月酿的酒；浑——浑浊；足——足够；豚——猪；疑——以为。</p>
+      <p><strong>讲解：</strong>不要笑话农家腊月的酒浑浊，丰收之年留客，鸡肉猪肉很充足。山重重水复复，以为无路可走了，柳荫深处鲜花明艳处又出现了一个村庄。"山重水复疑无路，柳暗花明又一村"既写景又含哲理——在困境中坚持下去，就会看到希望。成为千古名句。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">黄鹤楼送孟浩然之广陵</span>
+    <span class="entry-author">【唐】李白</span>
+  </div>
+  <div class="entry-text">故人西辞黄鹤楼，<br>烟花三月下扬州。<br>孤帆远影碧空尽，<br>唯见长江天际流。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>之——去、往；广陵——扬州；故人——老朋友；西辞——向西告别（黄鹤楼在扬州西边）；烟花——柳如烟、花似锦的春光；唯——只。</p>
+      <p><strong>讲解：</strong>这是两位大诗人（李白和孟浩然）的离别之作。老朋友在黄鹤楼向我告别，在繁花似锦的三月去扬州。孤帆的远影渐渐消失在碧蓝的天空尽头，只看见长江水向天边奔流。后两句写目送友人的情景，情在景中，余味无穷。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">送元二使安西</span>
+    <span class="entry-author">【唐】王维</span>
+  </div>
+  <div class="entry-text">渭城朝雨浥轻尘，<br>客舍青青柳色新。<br>劝君更尽一杯酒，<br>西出阳关无故人。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>使——出使；安西——安西都护府（今新疆）；渭城——咸阳；浥——湿润；客舍——旅店；更尽——再喝一杯；阳关——关名（在甘肃敦煌西南）。</p>
+      <p><strong>讲解：</strong>清晨的细雨湿润了渭城的轻尘，旅店旁的柳树格外翠绿清新。请您再喝一杯酒吧，往西出了阳关就再也没有老朋友了。这是一首千古送别名篇，后被谱曲为《阳关三叠》。"劝君更尽一杯酒"深厚的情谊尽在不言中。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="4" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">精卫填海</span>
+  </div>
+  <div class="entry-text">炎帝之少女，名曰女娃。女娃游于东海，溺而不返，故为精卫。常衔西山之木石，以堙于东海。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>炎帝——神农氏；少女——小女儿；溺——淹死；故——所以；为——变成；精卫——鸟名；堙——填塞。</p>
+      <p><strong>讲解：</strong>炎帝的小女儿名叫女娃，在东海游玩时淹死了，于是变成了精卫鸟。它常常衔西山的树枝和石子，想把东海填平。这个故事表现了远古先民不屈不挠的意志和征服自然的愿望。"精卫填海"成为比喻意志坚定的成语。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="4" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">王戎不取道旁李</span>
+  </div>
+  <div class="entry-text">王戎七岁，尝与诸小儿游。看道边李树多子折枝，诸儿竞走取之，唯戎不动。人问之，答曰："树在道边而多子，此必苦李。"取之，信然。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>王戎——魏晋名士（竹林七贤之一）；尝——曾经；诸——众多；折枝——压弯了树枝；竞走——争着跑过去；唯——只有；信然——果然如此。</p>
+      <p><strong>讲解：</strong>王戎七岁时和小朋友玩耍，看见路边李树上果实累累压弯了枝。小朋友们都跑去摘，只有王戎不动。别人问他，他说："树在路边却果实累累，这一定是苦李子。"摘来一尝，果然如此。故事表现了王戎善于观察和推理的聪明才智。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">出塞</span>
+    <span class="entry-author">【唐】王昌龄</span>
+  </div>
+  <div class="entry-text">秦时明月汉时关，<br>万里长征人未还。<br>但使龙城飞将在，<br>不教胡马度阴山。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>出塞——出征边塞；关——关塞（防御工事）；但使——只要；龙城飞将——指汉代名将李广（被称为"飞将军"）；教——让；胡马——敌人的骑兵；阴山——山脉名（中原与北方游牧民族的分界线）。</p>
+      <p><strong>讲解：</strong>自秦汉以来明月就照着边关，万里出征的将士至今没有回来。只要有飞将军李广那样的名将在，绝不会让敌人骑兵跨过阴山。诗人借古讽今，表达了对和平的渴望和对将帅无能的讽刺。是唐代边塞诗的代表作。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">凉州词</span>
+    <span class="entry-author">【唐】王翰</span>
+  </div>
+  <div class="entry-text">葡萄美酒夜光杯，<br>欲饮琵琶马上催。<br>醉卧沙场君莫笑，<br>古来征战几人回？</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>夜光杯——精美的酒杯；琵琶——乐器（这里指军乐）；马上催——骑在马上催促出发；沙场——战场。</p>
+      <p><strong>讲解：</strong>精美的夜光杯中盛满葡萄美酒，正要痛饮时琵琶声在马上催促出发。就算醉倒在战场上请您也不要笑话，自古以来出征打仗有几个人能回来？全诗豪放中透着悲壮，既表现了战士的视死如归，也暗含对战争的无奈和反讽。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">夏日绝句</span>
+    <span class="entry-author">【宋】李清照</span>
+  </div>
+  <div class="entry-text">生当作人杰，<br>死亦为鬼雄。<br>至今思项羽，<br>不肯过江东。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>人杰——人中豪杰；亦——也；鬼雄——鬼中的英雄；项羽——西楚霸王（兵败后自刎乌江，不肯渡江逃生）；江东——长江下游一带（项羽的家乡）。</p>
+      <p><strong>讲解：</strong>活着要做人中豪杰，死了也要做鬼中英雄。至今人们还在怀念项羽，因为他宁死也不肯渡江逃生。李清照借项羽的故事讽刺南宋朝廷的懦弱逃跑，表达了自己刚烈的人生价值观。是婉约派词人少有的豪放之作。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">别董大</span>
+    <span class="entry-author">【唐】高适</span>
+  </div>
+  <div class="entry-text">千里黄云白日曛，<br>北风吹雁雪纷纷。<br>莫愁前路无知己，<br>天下谁人不识君？</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>董大——唐代琴师董庭兰；曛——日色昏暗；知己——知心朋友；君——您。</p>
+      <p><strong>讲解：</strong>漫天的黄云把太阳遮得昏暗，北风吹着大雁，大雪纷纷。不要担心前方没有知心朋友，天下有谁不认识您（董大）呢？这首诗一反送别诗的伤感，用豪迈的语言鼓励朋友。与王维的"劝君更尽一杯酒，西出阳关无故人"形成鲜明对比。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="4" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">关于"问"的名言</span>
+  </div>
+  <div class="entry-text">好问则裕，自用则小。——《尚书》<br>博学之，审问之，慎思之，明辨之，笃行之。——《礼记》<br>智能之士，不学不成，不问不知。——王充<br>人非生而知之者，孰能无惑？——韩愈</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>四句关于勤学好问的古代名言。喜欢提问的人知识就丰富，自以为是的人知识就浅薄。要广博地学习，详细地求教，慎重地思考，明晰地辨别，踏实地行动。聪明的人不学习也不能成功，不提问也不能知晓。人不是生来就什么都知道的，谁能没有疑惑呢？鼓励学生勤学好问。</p>
+    </div>
+  </details>
+</div>
+</div><!-- /sem-g4-1 -->
+
+<div id="sem-g4-2" style="display:none">
+<!-- 四下 -->
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">四时田园杂兴（其二十五）</span>
+    <span class="entry-author">【宋】范成大</span>
+  </div>
+  <div class="entry-text">梅子金黄杏子肥，<br>麦花雪白菜花稀。<br>日长篱落无人过，<br>惟有蜻蜓蛱蝶飞。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>杂兴——随兴写来；肥——饱满；日长——白天变长；篱落——篱笆；蛱蝶——蝴蝶。</p>
+      <p><strong>讲解：</strong>金黄的梅子、饱满的杏子，雪白的麦花、稀疏的菜花。白天长了，篱笆旁没有人经过，只有蜻蜓和蝴蝶在飞舞。这首诗写了初夏江南农村的景色，充满了田园情趣和生活气息。不说人忙，而说"无人过"，以静写动，含蓄地写出农忙时节。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">宿新市徐公店</span>
+    <span class="entry-author">【宋】杨万里</span>
+  </div>
+  <div class="entry-text">篱落疏疏一径深，树头新绿未成阴。<br>儿童急走追黄蝶，飞入菜花无处寻。</div>
+  <details class="entry-notes"><summary>📖 注释与讲解</summary><div class="notes-content"><p>参见二年级上册。</p></div></details>
+</div>
+
+<div class="entry-card" data-type="ci" data-grade="4" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-ci">词</span>
+    <span class="entry-title">清平乐·村居</span>
+    <span class="entry-author">【宋】辛弃疾</span>
+  </div>
+  <div class="entry-text">茅檐低小，溪上青青草。<br>醉里吴音相媚好，白发谁家翁媪？<br>大儿锄豆溪东，中儿正织鸡笼。<br>最喜小儿亡赖，溪头卧剥莲蓬。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>吴音——吴地的方言（江南口音）；相媚好——互相逗趣取乐；翁媪——老公公和老婆婆；锄豆——给豆田锄草；亡赖——顽皮（通"无赖"）。</p>
+      <p><strong>讲解：</strong>低小的茅屋，溪边长满了青草。带着醉意的吴地方言听起来温柔美好，那是谁家的白发公婆？大儿子在溪东锄豆田，二儿子正在编织鸡笼，最喜欢小儿子顽皮，躺在溪边剥莲蓬吃。作者用白描手法描绘了一幅生动的农村家庭生活画面，充满了温馨的人情味。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">江畔独步寻花</span>
+    <span class="entry-author">【唐】杜甫</span>
+  </div>
+  <div class="entry-text">黄四娘家花满蹊，<br>千朵万朵压枝低。<br>留连戏蝶时时舞，<br>自在娇莺恰恰啼。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>蹊——小路；留连——舍不得离开；恰恰——形容黄莺叫声的和谐悦耳。</p>
+      <p><strong>讲解：</strong>黄四娘家的小路上开满了花，千朵万朵把枝条都压低了。蝴蝶在花间流连飞舞，黄莺自在地啼叫。这首诗写于杜甫在成都草堂时期，暂时安定的生活让他能欣赏春日的美好。全诗生机盎然，是杜甫少有的欢快之作。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">蜂</span>
+    <span class="entry-author">【唐】罗隐</span>
+  </div>
+  <div class="entry-text">不论平地与山尖，<br>无限风光尽被占。<br>采得百花成蜜后，<br>为谁辛苦为谁甜？</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>占——拥有（指蜜蜂飞到各处采蜜）；成——酿成。</p>
+      <p><strong>讲解：</strong>不管是平地还是高山，无限的风光都被蜜蜂占据了（飞到各处）。采了百花酿成蜜之后，到底是为谁辛苦、为谁带来甘甜呢？罗隐借蜜蜂歌颂了辛勤的劳动者，也暗讽了不劳而获的统治者。"为谁辛苦为谁甜"成为千古名句。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="4" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">囊萤夜读</span>
+  </div>
+  <div class="entry-text">胤恭勤不倦，博学多通。家贫不常得油，夏月则练囊盛数十萤火以照书，以夜继日焉。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>胤——车胤（晋代人）；恭勤——恭敬勤勉；倦——疲倦；通——通晓；贫——贫穷；练囊——白色薄绢做的袋子；盛——装；以夜继日——用夜晚接着白天（夜以继日）。</p>
+      <p><strong>讲解：</strong>车胤勤勉好学不知疲倦，知识广博通晓很多学问。家里贫穷没有灯油，夏天就用薄绢做的袋子装几十只萤火虫来照明读书，夜以继日地学习。这个故事激励学生在艰苦条件下也要坚持学习。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="4" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">铁杵成针</span>
+  </div>
+  <div class="entry-text">磨针溪，在象耳山下。世传李太白读书山中，未成，弃去。过是溪，逢老媪方磨铁杵。问之，曰："欲作针。"太白感其意，还卒业。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>世传——世代相传；弃去——放弃离开；是——这；老媪——老婆婆；方——正在；铁杵——铁棒；卒业——完成学业。</p>
+      <p><strong>讲解：</strong>磨针溪在象耳山下。传说李白在山中读书，没有完成就放弃了。路过这条小溪，遇到一位老婆婆正在磨铁棒。问她，回答说："想做一根针。"李白被她的意志感动，回去完成了学业。这个故事告诉我们：只要功夫深，铁杵磨成针。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">独坐敬亭山</span>
+    <span class="entry-author">【唐】李白</span>
+  </div>
+  <div class="entry-text">众鸟高飞尽，<br>孤云独去闲。<br>相看两不厌，<br>只有敬亭山。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>敬亭山——在安徽宣城；尽——消失；闲——悠闲；厌——满足（引申为厌烦）。</p>
+      <p><strong>讲解：</strong>群鸟高飞消失在远方，孤云也悠闲地独自飘走了。互相看着怎么看也不厌烦的，只有我和敬亭山了。李白写此诗时经历了人生挫折，寂寞中把敬亭山当作知己。"相看两不厌"是李白与大自然心心相印的写照。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">芙蓉楼送辛渐</span>
+    <span class="entry-author">【唐】王昌龄</span>
+  </div>
+  <div class="entry-text">寒雨连江夜入吴，<br>平明送客楚山孤。<br>洛阳亲友如相问，<br>一片冰心在玉壶。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>芙蓉楼——在江苏镇江；寒雨——秋雨；平明——天亮的时候；楚山——长江边的山；冰心——像冰一样纯洁的心。</p>
+      <p><strong>讲解：</strong>秋雨笼江，夜里来到吴地，天亮时送别客人，楚山显得格外孤独。洛阳的亲友如果问起我的情况，请告诉他们，我的心像玉壶中的冰一样纯洁。王昌龄当时被贬官，用"一片冰心在玉壶"表明自己的清白和坚守。"一片冰心在玉壶"成为形容品格高洁的经典。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">塞下曲</span>
+    <span class="entry-author">【唐】卢纶</span>
+  </div>
+  <div class="entry-text">月黑雁飞高，<br>单于夜遁逃。<br>欲将轻骑逐，<br>大雪满弓刀。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>塞下曲——边塞题材的诗歌；单于——匈奴首领；遁逃——逃跑；将——率领；轻骑——轻装骑兵。</p>
+      <p><strong>讲解：</strong>月亮被云遮住，大雁受惊高飞（暗示有军事行动），敌军首领趁夜逃跑。正要率领轻骑兵去追击，大雪落满了弓箭和战刀。诗人只写准备追击的瞬间，没有写追击结果，留下了想象空间。画面感极强，是边塞诗中的杰作。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="4" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">墨梅</span>
+    <span class="entry-author">【元】王冕</span>
+  </div>
+  <div class="entry-text">吾家洗砚池头树，<br>朵朵花开淡墨痕。<br>不要人夸好颜色，<br>只留清气满乾坤。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>墨梅——用水墨画的梅花；洗砚池——洗砚台的池塘；清气——清香之气（也指清高的气节）；乾坤——天地。</p>
+      <p><strong>讲解：</strong>我家洗砚池边的梅树，朵朵花开都带着淡淡的墨痕。不需要别人夸颜色好看，只要把清香的气节留在天地之间。王冕是元代大画家，这首诗题于他的墨梅画上，以梅花自喻——不求外表好看，只愿品格高尚。"只留清气满乾坤"给人留下深刻印象。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="4" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">自强不息名言</span>
+  </div>
+  <div class="entry-text">天行健，君子以自强不息。——《周易》<br>胜人者有力，自胜者强。——《老子》<br>不怨天，不尤人。——《论语》<br>生于忧患而死于安乐。——《孟子》</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>四句关于自强自立的经典名言。天道运行刚健有力，君子应该效法自然，自强不息。战胜别人的人有力量，战胜自己的人才是真正的强者。不埋怨天，不责怪别人。在忧患中生存，在安乐中灭亡。激励学生要有自强精神，面对困难不抱怨。</p>
+    </div>
+  </details>
+</div>
+</div><!-- /sem-g4-2 -->
+</div><!-- /grade-content -->
+</div><!-- /grade-4 -->
+
+<!-- ═══════════ 五年级 ═══════════ -->
+<div class="grade-section g5 collapsed" data-grade="5">
+<div class="grade-header" onclick="this.parentElement.classList.toggle('collapsed')">
+  <div class="grade-num">五</div>
+  <div class="grade-title">五年级</div>
+  <div class="grade-count grade-counter">—</div>
+  <div class="grade-arrow">▼</div>
+</div>
+<div class="grade-content">
+
+<div class="sem-tabs">
+  <button class="sem-tab active" onclick="switchSem(this,'sem-g5-1')">上册</button>
+  <button class="sem-tab" onclick="switchSem(this,'sem-g5-2')">下册</button>
+</div>
+
+<div id="sem-g5-1">
+<!-- 五上 -->
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">示儿</span>
+    <span class="entry-author">【宋】陆游</span>
+  </div>
+  <div class="entry-text">死去元知万事空，<br>但悲不见九州同。<br>王师北定中原日，<br>家祭无忘告乃翁。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>示儿——给儿子看（陆游的绝笔诗）；元——本来；但——只；九州同——国家统一；王师——南宋军队；乃翁——你们的父亲（陆游自指）。</p>
+      <p><strong>讲解：</strong>陆游临终前写给儿子的遗诗。本来就知道死后万事皆空，只悲伤没能看到国家统一。等到宋朝军队收复中原的那一天，家祭时千万不要忘记告诉你们的父亲（这个好消息）。全诗字字泣血，表现了陆游至死不渝的爱国情怀，是中国文学史上最感人的爱国诗篇之一。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">题临安邸</span>
+    <span class="entry-author">【宋】林升</span>
+  </div>
+  <div class="entry-text">山外青山楼外楼，<br>西湖歌舞几时休？<br>暖风熏得游人醉，<br>直把杭州作汴州。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>临安——杭州（南宋都城）；邸——旅店；休——停止；熏——吹拂；直——简直；汴州——开封（北宋都城，当时已被金人占领）。</p>
+      <p><strong>讲解：</strong>青山之外还有青山，高楼之外还有高楼，西湖边的歌舞什么时候才停止？暖风把游人吹得醉醺醺的，简直把杭州当成了故都汴州。这是一首政治讽刺诗，讽刺南宋统治者偏安杭州、不思收复中原的醉生梦死。"直把杭州作汴州"意味深远——忘记了国耻。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">己亥杂诗</span>
+    <span class="entry-author">【清】龚自珍</span>
+  </div>
+  <div class="entry-text">九州生气恃风雷，<br>万马齐喑究可哀。<br>我劝天公重抖擞，<br>不拘一格降人才。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>己亥——干支纪年；生气——生机活力；恃——依靠；喑——哑（形容沉默无声）；究——终究；天公——老天爷；抖擞——振作；不拘一格——不局限于一种规格。</p>
+      <p><strong>讲解：</strong>中国要有生机必须依靠风雷般的变革，万马齐喑、死气沉沉的局面终究可悲。我劝老天爷重新振作起来，不拘一格地降下各种人才。龚自珍在1839年辞官南归途中写下315首《己亥杂诗》，这是其中最著名的一首，表达了对改革的渴望和对人才的期盼。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">山居秋暝</span>
+    <span class="entry-author">【唐】王维</span>
+  </div>
+  <div class="entry-text">空山新雨后，天气晚来秋。<br>明月松间照，清泉石上流。<br>竹喧归浣女，莲动下渔舟。<br>随意春芳歇，王孙自可留。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>暝——傍晚；浣女——洗衣的女子；随意——任凭；春芳——春天的花草；歇——凋谢；王孙——原指贵族子弟，这里指诗人自己。</p>
+      <p><strong>讲解：</strong>空旷的山中刚下过雨，傍晚的天气有了秋意。明月照在松林间，清泉在石上流淌。竹林喧响是洗衣女归来，莲叶摇动是渔船顺流而下。任凭春天的花草凋谢，我自可留在这山中。王维的山水诗"诗中有画，画中有诗"，这首诗写秋日山居的宁静美好。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">枫桥夜泊</span>
+    <span class="entry-author">【唐】张继</span>
+  </div>
+  <div class="entry-text">月落乌啼霜满天，<br>江枫渔火对愁眠。<br>姑苏城外寒山寺，<br>夜半钟声到客船。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>枫桥——在苏州；夜泊——夜里停船靠岸；乌啼——乌鸦啼叫；江枫——江边的枫树；渔火——渔船上的灯火；姑苏——苏州的别称；寒山寺——苏州城外的著名寺庙。</p>
+      <p><strong>讲解：</strong>月亮落下去了，乌鸦在啼叫，寒霜满天。江边的枫树和渔船的灯火，陪伴着满怀愁绪难以入睡的诗人。姑苏城外的寒山寺里，半夜的钟声传到了客船上。全诗以"愁"字贯穿，以声衬静，意境深远。"夜半钟声到客船"成为苏州的文化名片。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="ci" data-grade="5" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-ci">词</span>
+    <span class="entry-title">长相思</span>
+    <span class="entry-author">【清】纳兰性德</span>
+  </div>
+  <div class="entry-text">山一程，水一程，<br>身向榆关那畔行，<br>夜深千帐灯。<br>风一更，雪一更，<br>聒碎乡心梦不成，<br>故园无此声。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>程——路程；榆关——山海关；那畔——那边；更——旧时一夜分五更，每更约两小时；聒——声音嘈杂；故园——家乡。</p>
+      <p><strong>讲解：</strong>走过一山又一山，涉过一水又一水，向山海关那边行进。夜深了，千万个帐篷里亮着灯火。风刮了一更又一更，雪下了一更又一更，嘈杂的风雪声搅碎了思乡的心，连梦也做不成了。家乡没有这种风雪声啊。纳兰性德写随军出征时的思乡之情，真切动人。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="ci" data-grade="5" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-ci">词</span>
+    <span class="entry-title">渔歌子</span>
+    <span class="entry-author">【唐】张志和</span>
+  </div>
+  <div class="entry-text">西塞山前白鹭飞，<br>桃花流水鳜鱼肥。<br>青箬笠，绿蓑衣，<br>斜风细雨不须归。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>西塞山——在浙江湖州；鳜鱼——一种肉质鲜美的鱼；箬笠——竹叶做的斗笠；蓑衣——草或棕编制的雨衣。</p>
+      <p><strong>讲解：</strong>西塞山前白鹭飞翔，桃花盛开春水涨，鳜鱼正肥美。戴着青色的斗笠，穿着绿色的蓑衣，在斜风细雨中不用急着回去。这首词写江南水乡春汛时节渔夫捕鱼的情景，色彩鲜明，格调清新，充满了生活情趣和大自然的美好。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="5" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">古人谈读书（三则）</span>
+  </div>
+  <div class="entry-text"><strong>其一（《论语》）</strong><br>
+知之为知之，不知为不知，是知也。<br>
+敏而好学，不耻下问。<br>
+默而识之，学而不厌，诲人不倦。<br><br>
+<strong>其二（朱熹）</strong><br>
+余尝谓读书有三到，谓心到、眼到、口到。心不在此，则眼不看仔细，心眼既不专一，却只漫浪诵读，决不能记，记亦不能久也。三到之中，心到最急。心既到矣，眼口岂不到乎？<br><br>
+<strong>其三（曾国藩）</strong><br>
+盖士人读书，第一要有志，第二要有识，第三要有恒。有志则断不甘为下流；有识则知学问无尽，不敢以一得自足；有恒则断无不成之事。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>三则古人谈读书方法的文言文。第一则选自《论语》：知道就是知道，不知道就是不知道，这才是真正的智慧；聪敏好学，不以向地位低的人请教为耻。第二则朱熹讲的"读书三到"——心到、眼到、口到，强调专心的重要性。第三则曾国藩讲读书要有志气、有见识、有恒心。三则合在一起，全面指导读书治学的方法和态度。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="5" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">少年中国说（节选）</span>
+    <span class="entry-author">【清】梁启超</span>
+  </div>
+  <div class="entry-text">故今日之责任，不在他人，而全在我少年。少年智则国智，少年富则国富；少年强则国强，少年独立则国独立；少年自由则国自由；少年进步则国进步；少年胜于欧洲则国胜于欧洲；少年雄于地球则国雄于地球。……美哉我少年中国，与天不老！壮哉我中国少年，与国无疆！</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>故——所以；智——智慧；于——比；哉——语气词（啊）。</p>
+      <p><strong>讲解：</strong>梁启超1900年写于日本，激励中国少年奋发图强。用一连串排比句阐述少年与国家命运的关系——少年智慧国家就智慧，少年强大国家就强大。最后用"美哉""壮哉"两个感叹句收束，气势磅礴。这篇半文半白的文章影响了一代又一代中国少年。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="5" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">勤俭节约名言</span>
+  </div>
+  <div class="entry-text">夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。——诸葛亮《诫子书》<br>居安思危，戒奢以俭。——魏征<br>由俭入奢易，由奢入俭难。——司马光<br>一粥一饭，当思来处不易；半丝半缕，恒念物力维艰。——朱柏庐《朱子家训》</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>四则关于勤俭节约、修身养德的经典名言。诸葛亮告诫儿子：用宁静来修养身心，用节俭来培养品德。魏征劝谏唐太宗：在安定的时候要想到危险，戒除奢侈提倡节俭。司马光说从节俭到奢侈容易，从奢侈回到节俭很难。朱柏庐说：一碗粥一碗饭应当想到来之不易，半根丝半根线要常想到生产的不容易。</p>
+    </div>
+  </details>
+</div>
+</div><!-- /sem-g5-1 -->
+
+<div id="sem-g5-2" style="display:none">
+<!-- 五下 -->
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">四时田园杂兴（其三十一）</span>
+    <span class="entry-author">【宋】范成大</span>
+  </div>
+  <div class="entry-text">昼出耘田夜绩麻，<br>村庄儿女各当家。<br>童孙未解供耕织，<br>也傍桑阴学种瓜。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>耘田——在田里除草；绩麻——搓麻线；各当家——各自承担家里的工作；童孙——小孩子；未解——不懂得；供——从事；傍——靠近。</p>
+      <p><strong>讲解：</strong>白天出去耕田除草，晚上回家搓麻线，村里的男男女女都各自承担着家务劳动。小孩子虽然还不会耕田织布，也在桑树荫下学着种瓜。全诗写出了农村劳动生活的紧张忙碌，也写出了小孩子天真模仿大人劳动的可爱画面。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">稚子弄冰</span>
+    <span class="entry-author">【宋】杨万里</span>
+  </div>
+  <div class="entry-text">稚子金盆脱晓冰，<br>彩丝穿取当银钲。<br>敲成玉磬穿林响，<br>忽作玻璃碎地声。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>稚子——小孩子；金盆——铜盆；脱——取出；钲——古代一种打击乐器；磬——古代一种玉制打击乐器；玻璃——古代指天然玉石之类。</p>
+      <p><strong>讲解：</strong>小孩子早晨从铜盆里取出冻成的冰块，用彩色的丝线穿起来当作银钲敲打。敲出的声音像玉磬一样穿越树林回响，忽然冰块掉在地上发出玉石破碎的声音。诗人捕捉了冬日儿童玩冰的一瞬间，把冰的声音比喻为乐器声，表现儿童的天真快乐。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">村晚</span>
+    <span class="entry-author">【宋】雷震</span>
+  </div>
+  <div class="entry-text">草满池塘水满陂，<br>山衔落日浸寒漪。<br>牧童归去横牛背，<br>短笛无腔信口吹。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>陂——池塘的岸；衔——含（形容太阳半落山后）；漪——水波纹；横——横坐；无腔——没有曲调；信口——随口。</p>
+      <p><strong>讲解：</strong>池塘边长满了青草，水漫到了岸边。远山衔着落日，倒映在带着寒意的水波里。放牛的孩子横坐在牛背上回家，随口吹着短笛，虽然没有曲调但自由自在。全诗写乡村傍晚的景色，充满了宁静、自由、悠闲的气氛。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">游子吟</span>
+    <span class="entry-author">【唐】孟郊</span>
+  </div>
+  <div class="entry-text">慈母手中线，游子身上衣。<br>临行密密缝，意恐迟迟归。<br>谁言寸草心，报得三春晖。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>游子——离家远行的人；临行——临走前；意恐——心里担忧；寸草——小草（比喻子女）；三春晖——春天的阳光（比喻母爱）。</p>
+      <p><strong>讲解：</strong>慈母手中拿着针线，为即将远行的儿子缝衣服。临走前密密地缝，怕儿子迟迟不回。谁说小草的一点点心意，能报答得了春天阳光般的母爱呢？孟郊50岁才当上小官，把母亲接到身边，回忆当年母亲为他缝衣的情景写下了这首诗。"谁言寸草心，报得三春晖"是中国文学中最动人的母爱写照。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">鸟鸣涧</span>
+    <span class="entry-author">【唐】王维</span>
+  </div>
+  <div class="entry-text">人闲桂花落，<br>夜静春山空。<br>月出惊山鸟，<br>时鸣春涧中。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>涧——山间溪流；闲——安静悠闲；空——空旷寂静。</p>
+      <p><strong>讲解：</strong>人安静下来了，桂花轻轻飘落。夜晚静谧，春山显得格外空旷。月亮出来惊动了山中栖息的鸟，它们不时在春天的山涧中鸣叫。王维以动写静——用花落、月出、鸟鸣来反衬山涧的幽静。全诗营造出极致的宁静美感。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">从军行</span>
+    <span class="entry-author">【唐】王昌龄</span>
+  </div>
+  <div class="entry-text">青海长云暗雪山，<br>孤城遥望玉门关。<br>黄沙百战穿金甲，<br>不破楼兰终不还。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>青海——青海湖；玉门关——关隘名（在甘肃）；穿——磨破；金甲——铁甲；楼兰——汉代西域国名（借指敌人）。</p>
+      <p><strong>讲解：</strong>青海湖上乌云笼罩使雪山变暗，从孤城远远望着玉门关。在沙漠中百战沙场，铁甲都磨破了，不打败敌人绝不回家。全诗写戍边将士的艰苦生活和坚定意志。"不破楼兰终不还"表现了将士们誓死报国的英雄气概。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">秋夜将晓出篱门迎凉有感</span>
+    <span class="entry-author">【宋】陆游</span>
+  </div>
+  <div class="entry-text">三万里河东入海，<br>五千仞岳上摩天。<br>遗民泪尽胡尘里，<br>南望王师又一年。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>河——黄河；仞——古代长度单位；岳——西岳华山；摩——接触；遗民——沦陷区的人民；胡尘——敌人骑兵扬起的尘土；王师——南宋军队。</p>
+      <p><strong>讲解：</strong>三万里长的黄河东流入海，五千仞高的华山直插云霄。沦陷区的人民在金兵的铁蹄下眼泪都哭干了，向南盼望王师收复失地又过了一年。陆游身在南方，心系北方沦陷区人民，表达了深沉的爱国情怀和对朝廷不作为的失望。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="5" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">闻官军收河南河北</span>
+    <span class="entry-author">【唐】杜甫</span>
+  </div>
+  <div class="entry-text">剑外忽传收蓟北，<br>初闻涕泪满衣裳。<br>却看妻子愁何在，<br>漫卷诗书喜欲狂。<br>白日放歌须纵酒，<br>青春作伴好还乡。<br>即从巴峡穿巫峡，<br>便下襄阳向洛阳。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>剑外——四川剑门关以南（当时杜甫在四川）；蓟北——河北北部（安史叛军的老巢）；却看——回头看；漫卷——胡乱卷起；喜欲狂——高兴得快要发狂；纵酒——开怀畅饮；青春——春天的景色。</p>
+      <p><strong>讲解：</strong>杜甫听闻唐朝军队收复了安史叛军的老巢，惊喜若狂。喜极而泣，泪满衣裳；回头看妻子孩子，大家的愁容都不见了；胡乱卷起诗书，高兴得快要发狂。杜甫被称为"诗圣"，此诗被称为其"生平第一快诗"，因为终于看到了回家的希望。全诗一气呵成，喜悦之情溢满纸面。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="5" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">自相矛盾</span>
+  </div>
+  <div class="entry-text">楚人有鬻盾与矛者，誉之曰："吾盾之坚，物莫能陷也。"又誉其矛曰："吾矛之利，于物无不陷也。"或曰："以子之矛陷子之盾，何如？"其人弗能应也。夫不可陷之盾与无不陷之矛，不可同世而立。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>鬻——卖；誉——夸耀；陷——刺穿；或——有人；子——您；弗——不；应——回答；夫——句首语气词；立——存在。</p>
+      <p><strong>讲解：</strong>楚国有个人卖盾和矛，先夸盾：我的盾最坚固，什么东西都刺不穿；又夸矛：我的矛最锋利，什么东西都能刺穿。有人问他：那用你的矛刺你的盾怎么样？那人答不出来了。这个故事告诉我们：说话做事不能前后冲突、自相矛盾。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="5" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">杨氏之子</span>
+  </div>
+  <div class="entry-text">梁国杨氏子九岁，甚聪惠。孔君平诣其父，父不在，乃呼儿出。为设果，果有杨梅。孔指以示儿曰："此是君家果。"儿应声答曰："未闻孔雀是夫子家禽。"</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>梁国——南北朝时期的梁国；甚——非常；聪惠——聪明；诣——拜访；乃——于是；设——摆放；示——给……看；应声——马上；夫子——对男子的尊称。</p>
+      <p><strong>讲解：</strong>梁国杨家的儿子九岁，非常聪明。孔君平来拜访他父亲，父亲不在，就叫儿子出来招待。孩子摆出水果，其中有杨梅。孔君平指着杨梅对小孩说："这是你家的水果（杨梅和杨氏同姓）。"孩子马上回答："从没听说孔雀是您家的鸟（孔君平和孔雀同姓）。"这个九岁孩子的机智应答令人拍案叫绝。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="5" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">关于年龄的别称</span>
+  </div>
+  <div class="entry-text">豆蔻年华：指女子十三四岁的年纪<br>及笄：指女子年满十五岁<br>弱冠：指男子二十岁左右的年纪<br>而立：指三十岁<br>不惑：指四十岁<br>花甲：指六十岁<br>古稀：指七十岁<br>期颐：指一百岁</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>中国文化中对不同年龄的雅称。来自于《论语》等经典：三十而立、四十而不惑、五十知天命等。这是传统文化常识，帮助学生了解古人对人生不同阶段的称谓。</p>
+    </div>
+  </details>
+</div>
+</div><!-- /sem-g5-2 -->
+</div><!-- /grade-content -->
+</div><!-- /grade-5 -->
+
+<!-- ═══════════ 六年级 ═══════════ -->
+<div class="grade-section g6 collapsed" data-grade="6">
+<div class="grade-header" onclick="this.parentElement.classList.toggle('collapsed')">
+  <div class="grade-num">六</div>
+  <div class="grade-title">六年级</div>
+  <div class="grade-count grade-counter">—</div>
+  <div class="grade-arrow">▼</div>
+</div>
+<div class="grade-content">
+
+<div class="sem-tabs">
+  <button class="sem-tab active" onclick="switchSem(this,'sem-g6-1')">上册</button>
+  <button class="sem-tab" onclick="switchSem(this,'sem-g6-2')">下册</button>
+</div>
+
+<div id="sem-g6-1">
+<!-- 六上 -->
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">宿建德江</span>
+    <span class="entry-author">【唐】孟浩然</span>
+  </div>
+  <div class="entry-text">移舟泊烟渚，<br>日暮客愁新。<br>野旷天低树，<br>江清月近人。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>建德江——新安江流经浙江建德的一段；泊——停船靠岸；烟渚——雾气笼罩的江中小洲；日暮——傍晚；旷——空旷。</p>
+      <p><strong>讲解：</strong>把船停泊在烟雾蒙蒙的小洲边，暮色中又涌起新的客愁。原野辽阔，天空显得比树还低；江水澄澈，月亮好像和人很亲近。后两句是写景名句——"野旷天低树"写出了视觉的错觉，"江清月近人"以月之近反衬人之孤寂。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">六月二十七日望湖楼醉书</span>
+    <span class="entry-author">【宋】苏轼</span>
+  </div>
+  <div class="entry-text">黑云翻墨未遮山，<br>白雨跳珠乱入船。<br>卷地风来忽吹散，<br>望湖楼下水如天。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>望湖楼——在杭州西湖边；醉书——喝醉时写的；翻墨——像打翻的墨汁；跳珠——雨点像跳动的珍珠。</p>
+      <p><strong>讲解：</strong>黑云像打翻的墨汁还没有遮住山，白色的雨点像跳动的珍珠乱纷纷落入船中。一阵卷地的大风忽然把云雨吹散，望湖楼下水天一色。苏轼用四句诗捕捉了一场夏日暴雨从来临到消散的全过程——短短几分钟内的天气剧变，写得气势磅礴、生动传神。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="ci" data-grade="6" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-ci">词</span>
+    <span class="entry-title">西江月·夜行黄沙道中</span>
+    <span class="entry-author">【宋】辛弃疾</span>
+  </div>
+  <div class="entry-text">明月别枝惊鹊，清风半夜鸣蝉。<br>稻花香里说丰年，听取蛙声一片。<br>七八个星天外，两三点雨山前。<br>旧时茅店社林边，路转溪桥忽见。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>黄沙道——江西上饶黄沙岭；别枝——离开树枝；社林——土地庙旁的树林；见——出现。</p>
+      <p><strong>讲解：</strong>明亮的月光惊动了栖息在枝头的喜鹊，半夜清风送来蝉鸣声。在稻花的香气里谈论着丰收的年景，耳边传来一片蛙声。天边还挂着七八颗星星，山前却已经飘落了两三点雨。从前土地庙树林边的茅草小店，山路一转过了溪桥忽然出现了。辛弃疾用白描手法写夏夜乡村行走的所见所闻所感，静谧中透着丰收的喜悦。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">过故人庄</span>
+    <span class="entry-author">【唐】孟浩然</span>
+  </div>
+  <div class="entry-text">故人具鸡黍，邀我至田家。<br>绿树村边合，青山郭外斜。<br>开轩面场圃，把酒话桑麻。<br>待到重阳日，还来就菊花。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>过——拜访；具——准备；鸡黍——鸡肉和黄米饭；合——环绕；郭——村庄外围；轩——窗户；场圃——打谷场和菜园；桑麻——桑树和麻（指农事）；就——靠近（引申为观赏）。</p>
+      <p><strong>讲解：</strong>老朋友准备了鸡肉和黄米饭，邀请我到他的田庄做客。绿树围绕着村庄，青山斜立在城外。打开窗户面对打谷场和菜园，端起酒杯谈论农事。等到重阳节那天，我还要来这里赏菊花。全诗平淡自然，却写出了真挚的友情和田园生活的美好。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">春日</span>
+    <span class="entry-author">【宋】朱熹</span>
+  </div>
+  <div class="entry-text">胜日寻芳泗水滨，<br>无边光景一时新。<br>等闲识得东风面，<br>万紫千红总是春。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>胜日——天气好的日子；寻芳——寻找美景/游春；泗水——河名（在山东）；滨——水边；等闲——随便/轻易；东风面——春天的面貌。</p>
+      <p><strong>讲解：</strong>晴朗的日子里在泗水河边游玩赏春，无边无际的风景焕然一新。随处都可以感受到春天的气息，万紫千红都是春天的景象。朱熹是理学家，这首诗表面写春游，实际上"泗水"暗指孔门学问，"寻芳"暗指求学求道。"万紫千红总是春"成为描写春天最常用的名句。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">回乡偶书</span>
+    <span class="entry-author">【唐】贺知章</span>
+  </div>
+  <div class="entry-text">离别家乡岁月多，<br>近来人事半消磨。<br>惟有门前镜湖水，<br>春风不改旧时波。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>消磨——逐渐消失/变化；镜湖——在贺知章家乡绍兴。</p>
+      <p><strong>讲解：</strong>这是《回乡偶书》的第二首（第一首"少小离家老大回"在二年级学过）。离开家乡已经很多年了，近来家乡的人和事多半都变了。只有门前镜湖的水，在春风吹拂下还是从前的波纹。用湖水的"不变"来反衬人事的"大变"，表达了物是人非的深沉感慨。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">浪淘沙</span>
+    <span class="entry-author">【唐】刘禹锡</span>
+  </div>
+  <div class="entry-text">九曲黄河万里沙，<br>浪淘风簸自天涯。<br>如今直上银河去，<br>同到牵牛织女家。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>九曲——弯弯曲曲；浪淘——大浪冲刷；风簸——大风颠簸；天涯——天边；牵牛织女——牛郎星和织女星。</p>
+      <p><strong>讲解：</strong>弯弯曲曲的黄河夹带着万里泥沙，大浪冲刷着风沙颠簸着从天边而来。如今我要沿着黄河直上银河，到牛郎织女的家里去。诗人用极度浪漫的想象，把黄河和银河联系起来，天上人间融为一体，表现了刘禹锡的豪迈气概和浪漫情怀。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">江南春</span>
+    <span class="entry-author">【唐】杜牧</span>
+  </div>
+  <div class="entry-text">千里莺啼绿映红，<br>水村山郭酒旗风。<br>南朝四百八十寺，<br>多少楼台烟雨中。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>郭——外城（指山边的城镇）；酒旗——酒店的招牌旗；南朝——宋齐梁陈四个朝代（都定都建康即南京）；四百八十寺——形容寺庙很多（不是确数）。</p>
+      <p><strong>讲解：</strong>千里江南到处黄鹂啼、绿叶映红花，水边的村庄和山边的城镇酒旗迎风飘动。南朝留下了许多寺庙，有多少楼台笼罩在蒙蒙烟雨中。前两句写明媚的江南春色，后两句写烟雨中的寺庙，既写出了江南春天的美丽，也暗含历史兴亡的感慨。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">书湖阴先生壁</span>
+    <span class="entry-author">【宋】王安石</span>
+  </div>
+  <div class="entry-text">茅檐长扫净无苔，<br>花木成畦手自栽。<br>一水护田将绿绕，<br>两山排闼送青来。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>书——题写；湖阴先生——王安石的朋友杨骥的别号；畦——整齐的田地；排闼——推开门（闼是门）。</p>
+      <p><strong>讲解：</strong>茅草屋檐下经常打扫，干净得没有青苔；一畦畦的花木都是亲手栽种的。一条小河护卫着农田，把绿色环绕；两座青山像推开门一样把青翠送了进来。后两句尤其精彩，用拟人手法——河水"护田"，青山"排闼"，把山水写得有情有义，充满了亲切感。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="6" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">伯牙鼓琴</span>
+  </div>
+  <div class="entry-text">伯牙鼓琴，锺子期听之。方鼓琴而志在太山，锺子期曰："善哉乎鼓琴！巍巍乎若太山。"少选之间而志在流水，锺子期又曰："善哉乎鼓琴！汤汤乎若流水。"锺子期死，伯牙破琴绝弦，终身不复鼓琴，以为世无足复为鼓琴者。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>鼓——弹；志——心里想；太山——泰山；巍巍——高大的样子；少选——一会儿；汤汤——水流大而急的样子；破琴——摔破琴；绝弦——扯断琴弦；复——再。</p>
+      <p><strong>讲解：</strong>伯牙弹琴，锺子期倾听。伯牙弹琴时心里想着高山，锺子期说："弹得真好啊！像巍峨的泰山！"一会儿心里想着流水，锺子期又说："弹得真好啊！像浩荡的流水！"锺子期死后，伯牙摔破琴扯断弦，一辈子不再弹琴，认为世上再没有值得为之弹琴的人了。这就是"知音"典故的来源，"高山流水"比喻知音或高妙的音乐。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="6" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">书戴嵩画牛</span>
+  </div>
+  <div class="entry-text">蜀中有杜处士，好书画，所宝以百数。有戴嵩《牛》一轴，尤所爱，锦囊玉轴，常以自随。一日曝书画，有一牧童见之，拊掌大笑曰："此画斗牛也。牛斗，力在角，尾搐入两股间，今乃掉尾而斗，谬矣！"处士笑而然之。古语有云："耕当问奴，织当问婢。"不可改也。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>处士——有才德而未做官的人；好——喜欢；所宝——所珍藏的（书画）；戴嵩——唐代画家；拊掌——拍手；搐——抽搐（收紧）；股——大腿；掉尾——摇着尾巴；谬——错误；然之——认为他说得对。</p>
+      <p><strong>讲解：</strong>四川有个杜处士喜爱书画，珍藏品数以百计。有一幅戴嵩画的《斗牛图》，尤其珍爱，用锦缎做画袋、玉石做画轴，常常随身带着。有一天晒书画，一个牧童看见这幅画，拍手大笑说："这是画的斗牛啊。牛争斗时力在角上，尾巴夹在两条大腿之间，现在却摇着尾巴相斗，错了！"处士笑着表示赞同。古人说："耕种的事应当问农夫，纺织的事应当问婢女。"这个道理是不可改变的。故事告诉我们：艺术创作要尊重生活的真实，行家（实践者）最有发言权。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="6" data-sem="1">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">爱国名言</span>
+  </div>
+  <div class="entry-text">鞠躬尽瘁，死而后已。——诸葛亮<br>捐躯赴国难，视死忽如归。——曹植<br>祖宗疆土，当以死守，不可以尺寸与人。——李纲<br>位卑未敢忘忧国。——陆游</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>四句关于爱国的经典名言。诸葛亮表达为国尽忠的决心；曹植写出为国献身视死如归的精神；李纲（宋代抗金名将）说祖先的疆土应当拼死守卫，不能把一尺一寸让给别人；陆游说虽然自己地位卑微，但从不敢忘记担忧国家。四句话从不同角度表现了中国人深厚的爱国传统。</p>
+    </div>
+  </details>
+</div>
+</div><!-- /sem-g6-1 -->
+
+<div id="sem-g6-2" style="display:none">
+<!-- 六下 -->
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">寒食</span>
+    <span class="entry-author">【唐】韩翃</span>
+  </div>
+  <div class="entry-text">春城无处不飞花，<br>寒食东风御柳斜。<br>日暮汉宫传蜡烛，<br>轻烟散入五侯家。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>寒食——寒食节（清明节前1-2天，禁火）；御柳——皇宫里的柳树；传蜡烛——皇帝赏赐蜡烛给大臣（寒食节特许点火）；五侯——指众多贵族。</p>
+      <p><strong>讲解：</strong>春天的长安城到处飞花，寒食节东风吹得皇宫柳树斜。傍晚皇宫里传递蜡烛（赏赐火种），轻烟飘散到贵族们的家中。表面写寒食节的风俗，实则暗含讽刺——寒食节本该禁火，但皇帝却给贵族特权传蜡烛。韩翃因这首诗被唐德宗赏识，传为佳话。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">迢迢牵牛星</span>
+    <span class="entry-author">【汉】《古诗十九首》</span>
+  </div>
+  <div class="entry-text">迢迢牵牛星，皎皎河汉女。<br>纤纤擢素手，札札弄机杼。<br>终日不成章，泣涕零如雨。<br>河汉清且浅，相去复几许？<br>盈盈一水间，脉脉不得语。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>迢迢——遥远；皎皎——明亮；河汉——银河；擢——举起；札札——织布声；机杼——织布机；章——花纹；零——落下；几许——多少；盈盈——清澈的样子；脉脉——含情相视。</p>
+      <p><strong>讲解：</strong>遥远的牵牛星，明亮的织女星。织女举起纤细白皙的手，札札地操作织布机。一整天织不出一段花纹，泪水如雨般落下。银河又清又浅，相距又有多少呢？就在清清的河水两边，含情脉脉却不能说话。这首诗写了牛郎织女的相思之苦，叠词（迢迢、皎皎、纤纤、札札、盈盈、脉脉）的运用是最大特色。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">十五夜望月</span>
+    <span class="entry-author">【唐】王建</span>
+  </div>
+  <div class="entry-text">中庭地白树栖鸦，<br>冷露无声湿桂花。<br>今夜月明人尽望，<br>不知秋思落谁家。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>十五夜——八月十五中秋节；地白——月光照在地上像白霜；栖——栖息；秋思——秋天的愁思（思乡之情）。</p>
+      <p><strong>讲解：</strong>庭院中月光照得地面发白，树上栖息着乌鸦，冰冷的露水无声地打湿了桂花。今晚的明月人人都在仰望，不知那秋天的愁思落在了谁家？八月十五中秋夜望月思乡之作。"不知秋思落谁家"一个"落"字把无形的愁思写得具体可感，用词精妙。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">马诗</span>
+    <span class="entry-author">【唐】李贺</span>
+  </div>
+  <div class="entry-text">大漠沙如雪，<br>燕山月似钩。<br>何当金络脑，<br>快走踏清秋。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>燕山——燕然山（在今蒙古）；钩——弯刀（形容月牙）；何当——什么时候能够；金络脑——金饰的马笼头（比喻受到重用）；踏——奔驰。</p>
+      <p><strong>讲解：</strong>大沙漠里的沙子像雪一样白，燕山头上一弯新月像弯刀。什么时候能戴上金笼头，在清爽的秋日里奔驰呢？李贺是唐代天才诗人（被称为"诗鬼"），27岁早逝。他借马来表达自己怀才不遇、渴望受到重用为国建功立业的愿望。前两句写边塞景色，气势雄浑。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">石灰吟</span>
+    <span class="entry-author">【明】于谦</span>
+  </div>
+  <div class="entry-text">千锤万凿出深山，<br>烈火焚烧若等闲。<br>粉骨碎身浑不怕，<br>要留清白在人间。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>千锤万凿——锤打凿击（开采石灰石）；等闲——平常事；浑——全。</p>
+      <p><strong>讲解：</strong>经过千锤万凿从深山中被开采出来，烈火焚烧也只当是平常事。即使粉身碎骨也全不害怕，要把清白的本色留在人间。于谦是明代民族英雄，这首诗借石灰表达自己为国尽忠、不怕牺牲的高尚情操。"粉骨碎身浑不怕，要留清白在人间"是于谦一生的写照。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">竹石</span>
+    <span class="entry-author">【清】郑燮</span>
+  </div>
+  <div class="entry-text">咬定青山不放松，<br>立根原在破岩中。<br>千磨万击还坚劲，<br>任尔东西南北风。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>竹石——生长在岩石中的竹子；咬定——牢牢地抓住；破岩——破裂的岩石；坚劲——坚韧挺拔；任尔——随便你。</p>
+      <p><strong>讲解：</strong>竹子紧紧咬住青山绝不放松，根深深地扎在破裂的岩石中。千种磨难万种打击依然坚韧挺拔，随便你刮东西南北风。郑燮（郑板桥，扬州八怪之一）借生长在岩石中的竹子，赞美了在恶劣环境中坚持信念、不屈不挠的精神。这也是他人格的写照。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">学弈</span>
+  </div>
+  <div class="entry-text">弈秋，通国之善弈者也。使弈秋诲二人弈，其一人专心致志，惟弈秋之为听；一人虽听之，一心以为有鸿鹄将至，思援弓缴而射之。虽与之俱学，弗若之矣。为是其智弗若与？曰：非然也。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>弈——下棋；通国——全国；善——擅长；使——让；诲——教；惟——只；鸿鹄——大雁；援——拿；弓缴——弓箭（缴是系着丝绳的箭）；弗若——不如；与——通"欤"（语气词）；然——这样。</p>
+      <p><strong>讲解：</strong>弈秋是全国最擅长下棋的人。让他教两个人下棋，其中一人专心致志，只听弈秋的讲解；另一人虽然也在听，心里却想着有大雁要飞来了，想拿弓箭去射它。虽然一起学习，但不如第一个人。是因为他的智力不如吗？回答说：不是这样的。这篇文言文告诉我们学习要专心致志，不能三心二意。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="prose" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-prose">文言文</span>
+    <span class="entry-title">两小儿辩日</span>
+  </div>
+  <div class="entry-text">孔子东游，见两小儿辩斗，问其故。<br>一儿曰："我以日始出时去人近，而日中时远也。"<br>一儿曰："我以日初出远，而日中时近也。"<br>一儿曰："日初出大如车盖，及日中则如盘盂，此不为远者小而近者大乎？"<br>一儿曰："日初出沧沧凉凉，及其日中如探汤，此不为近者热而远者凉乎？"<br>孔子不能决也。<br>两小儿笑曰："孰为汝多知乎？"</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>辩斗——争辩；以——认为；去——距离；日中——中午；车盖——古时车上的伞盖；及——到了；盘盂——盘子和钵；沧沧凉凉——凉飕飕的；探汤——把手伸到热水中；决——判断；孰——谁；为——通"谓"（说）；汝——你；知——智慧。</p>
+      <p><strong>讲解：</strong>孔子在东方游历，看见两个小孩争辩，问原因。一个说太阳刚出来时离人近，中午远。另一个说太阳刚出来时远，中午近。第一个说太阳刚出来大得像车盖，中午小得像盘盂——难道不是远的小近的大吗？第二个说太阳刚出来凉飕飕的，中午热得像探汤——难道不是近的热远的凉吗？孔子也不能判断谁对谁错。两个小孩笑着说："谁说您多智慧呢？"这篇文言文告诉我们：看问题要全面，不能片面；同时也说明即使是圣人也有不知道的事情——知之为知之，不知为不知。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">采薇（节选）</span>
+    <span class="entry-author">【先秦】《诗经》</span>
+  </div>
+  <div class="entry-text">昔我往矣，杨柳依依。<br>今我来思，雨雪霏霏。<br>行道迟迟，载渴载饥。<br>我心伤悲，莫知我哀！</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>昔——从前；往——出征；依依——柳枝轻柔飘动的样子；来思——回来（思是语气词）；雨雪——下雪（雨作动词）；霏霏——雪花纷飞的样子；迟迟——缓慢；载——又；莫——没有人。</p>
+      <p><strong>讲解：</strong>《采薇》是《诗经·小雅》中的一篇，写的是戍边士兵返乡途中的心情。当年我出发时，杨柳依依飘动（春天）；如今我回来了，大雪纷飞（冬天）。在漫长的回家路上，又渴又饿。我心中悲伤，没有人知道我的哀痛！"昔我往矣，杨柳依依。今我来思，雨雪霏霏"以景写情，是《诗经》中最美的诗句之一。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">送元二使安西</span>
+    <span class="entry-author">【唐】王维</span>
+  </div>
+  <div class="entry-text">渭城朝雨浥轻尘，客舍青青柳色新。<br>劝君更尽一杯酒，西出阳关无故人。</div>
+  <details class="entry-notes"><summary>📖 注释与讲解</summary><div class="notes-content"><p>参见四年级上册。</p></div></details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">春夜喜雨</span>
+    <span class="entry-author">【唐】杜甫</span>
+  </div>
+  <div class="entry-text">好雨知时节，当春乃发生。<br>随风潜入夜，润物细无声。<br>野径云俱黑，江船火独明。<br>晓看红湿处，花重锦官城。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>知——知道（拟人）；时节——时令节气；乃——就；潜——悄悄地；润物——滋润万物；野径——乡间小路；俱——都；红湿——被雨打湿的红花；花重——花沾了雨水变得沉重；锦官城——成都的别称。</p>
+      <p><strong>讲解：</strong>好雨似乎懂得时节，春天来了它就下了。随着春风悄悄地在夜里飘落，滋润万物细无声响。野外的小路和云一样漆黑，只有江船上的灯火还亮着。清晨看那被雨打湿的红花，沉甸甸地开遍锦官城。这是写春雨的千古绝唱，"随风潜入夜，润物细无声"既写春雨的特点，也常用来比喻潜移默化的教育。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">早春呈水部张十八员外</span>
+    <span class="entry-author">【唐】韩愈</span>
+  </div>
+  <div class="entry-text">天街小雨润如酥，<br>草色遥看近却无。<br>最是一年春好处，<br>绝胜烟柳满皇都。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>呈——送给；水部张十八员外——张籍（排行十八，任水部员外郎）；天街——京城的街道；酥——酥油（形容春雨滋润）；绝胜——远远胜过；皇都——京城长安。</p>
+      <p><strong>讲解：</strong>京城的街道上细雨像酥油般滋润，远看草色青青近看却好像没有。这是一年中最美好的早春时节，远远胜过烟柳满城的暮春景色。韩愈写早春的草色——远望有绿意，近看又稀疏得好像没有，这种"似有若无"的感觉恰恰是早春最美的地方。诗人捕捉了一个转瞬即逝的春景瞬间。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">江上渔者</span>
+    <span class="entry-author">【宋】范仲淹</span>
+  </div>
+  <div class="entry-text">江上往来人，<br>但爱鲈鱼美。<br>君看一叶舟，<br>出没风波里。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>渔者——打鱼的人；但——只；鲈鱼——一种味道鲜美的鱼；一叶舟——像一片树叶的小船；出没——时隐时现。</p>
+      <p><strong>讲解：</strong>江上来来往往的人，只知道喜爱鲈鱼的鲜美。请您看看那一叶小舟，在风浪中时隐时现（那是渔民冒着生命危险在捕鱼）。范仲淹的这首诗和李绅的《悯农》一样，关注劳动者的艰辛，提醒人们不要只看到美好结果，要想到背后的付出和风险。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">泊船瓜洲</span>
+    <span class="entry-author">【宋】王安石</span>
+  </div>
+  <div class="entry-text">京口瓜洲一水间，<br>钟山只隔数重山。<br>春风又绿江南岸，<br>明月何时照我还？</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>泊——停船；瓜洲——在扬州；京口——镇江；钟山——南京紫金山（王安石的家在钟山）；数重——几层；绿——吹绿（形容词作动词）；还——回家。</p>
+      <p><strong>讲解：</strong>京口和瓜洲只隔一条长江，钟山也只隔着几重山。春风又吹绿了江南的堤岸，明月什么时候照我回家呢？"春风又绿江南岸"中"绿"字是炼字的经典例子——据说王安石先后用了"到、过、入、满"等十多个字，最后才选定"绿"字，把形容词当动词用，写出了春风带来的视觉变化。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="poem" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-poem">古诗</span>
+    <span class="entry-title">游子吟</span>
+    <span class="entry-author">【唐】孟郊</span>
+  </div>
+  <div class="entry-text">慈母手中线，游子身上衣。<br>临行密密缝，意恐迟迟归。<br>谁言寸草心，报得三春晖。</div>
+  <details class="entry-notes"><summary>📖 注释与讲解</summary><div class="notes-content"><p>参见五年级下册。</p></div></details>
+</div>
+
+<div class="entry-card" data-type="ci" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-ci">词</span>
+    <span class="entry-title">清平乐</span>
+    <span class="entry-author">【宋】黄庭坚</span>
+  </div>
+  <div class="entry-text">春归何处？寂寞无行路。<br>若有人知春去处，唤取归来同住。<br>春无踪迹谁知？除非问取黄鹂。<br>百啭无人能解，因风飞过蔷薇。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>寂寞——无声无息；行路——（春天离去的）踪迹；唤取——叫来；啭——鸟婉转地叫；解——懂得；因风——顺着风。</p>
+      <p><strong>讲解：</strong>春天回到哪里去了？寂寞地离去没有留下踪迹。如果有人知道春天的去处，把它叫回来和我们一起住。春天没有踪迹谁知道呢？除非去问问黄鹂。黄鹂叫了千百声却没人能听懂，它顺着风飞过了蔷薇花。这首词通篇问春、寻春、唤春，表现了惜春之情。构思巧妙，富有童心。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="ci" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-ci">词</span>
+    <span class="entry-title">浣溪沙</span>
+    <span class="entry-author">【宋】苏轼</span>
+  </div>
+  <div class="entry-text">游蕲水清泉寺，寺临兰溪，溪水西流。<br>山下兰芽短浸溪，松间沙路净无泥。<br>萧萧暮雨子规啼。<br>谁道人生无再少？门前流水尚能西！<br>休将白发唱黄鸡。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>蕲水——在湖北浠水；浸——浸泡；子规——杜鹃鸟；少——年轻；休将——不要因为；白发——老年；黄鸡——报晓的公鸡（"唱黄鸡"指感叹时光流逝）。</p>
+      <p><strong>讲解：</strong>山下短短的兰芽浸泡在溪水中，松林间的沙路干净没有泥。傍晚细雨萧萧，杜鹃在啼叫。谁说人生不能再年轻？门前的溪水都能向西流（中国地势西高东低，水一般向东流，西流是反常）。不要因为白发而感叹时光流逝。苏轼被贬黄州时所写，借溪水反常西流来激励自己——人生可以有第二春！表现出苏轼乐观旷达的人生态度。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="ci" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-ci">词</span>
+    <span class="entry-title">卜算子·送鲍浩然之浙东</span>
+    <span class="entry-author">【宋】王观</span>
+  </div>
+  <div class="entry-text">水是眼波横，山是眉峰聚。<br>欲问行人去那边？眉眼盈盈处。<br>才始送春归，又送君归去。<br>若到江南赶上春，千万和春住。</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>注释：</strong>眼波——像眼波一样流动的水；眉峰——像眉毛一样聚拢的山；行人——远行的人（指鲍浩然）；盈盈——美好的样子；才始——刚刚。</p>
+      <p><strong>讲解：</strong>水像美人的眼波流转，山像美人的眉峰攒聚。想问远行的人要去哪里？去那眉眼盈盈（山水秀丽）的浙东。刚刚送走了春天，又送你回去。如果你到了江南赶上春天，千万要和春天住在一起。这首送别词一反伤感，把山水比作美人眉眼，又劝朋友和春天作伴，想象新奇，格调轻快。</p>
+    </div>
+  </details>
+</div>
+
+<div class="entry-card" data-type="quote" data-grade="6" data-sem="2">
+  <div class="entry-header">
+    <span class="entry-type type-quote">日积月累</span>
+    <span class="entry-title">《增广贤文》选句</span>
+  </div>
+  <div class="entry-text">穷则变，变则通，通则久。——《周易》<br>苟日新，日日新，又日新。——《礼记》<br>青，取之于蓝而青于蓝。——《荀子》<br>苟利于民，不必法古；苟周于事，不必循旧。——《淮南子》</div>
+  <details class="entry-notes">
+    <summary>📖 注释与讲解</summary>
+    <div class="notes-content">
+      <p><strong>讲解：</strong>四句关于创新和变革的经典名言。事物到了尽头就要变化，变化了就能通达，通达了就能长久。如果每天都能更新，就要日日更新、不断更新。青色是从蓝草中提取的，但比蓝草更青（比喻学生超过老师、后人胜过前人）。如果对人民有利，就不必效法古人；如果能把事情办好，就不必遵循旧规。鼓励学生要有创新精神。</p>
+    </div>
+  </details>
+</div>
+</div><!-- /sem-g6-2 -->
+</div><!-- /grade-content -->
+</div><!-- /grade-6 -->
+
+</div><!-- /container -->
+
+<div class="footer">
+  <p>📚 部编版（人教版）小学语文 1–6 年级全部古诗文名言汇编</p>
+  <p>含课文古诗 · 日积月累 · 文言文 · 词 · 名言警句 ｜ 全文 + 注释 + 讲解</p>
+  <p style="margin-top:8px;font-size:12px;opacity:.7;">内容力求准确，如有疏漏请以教材为准。建议打印后配合课本使用。</p>
+</div>
+
+<script>
+// ── Semester Tab Switching ──
+function switchSem(btn, id) {
+  const tabs = btn.parentElement.querySelectorAll('.sem-tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const container = btn.parentElement.parentElement;
+  container.querySelectorAll('[id^="sem-"]').forEach(el => el.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+  filterAll();
+}
+
+// ── Expand/Collapse All ──
+function toggleAll(expand) {
+  document.querySelectorAll('.grade-section').forEach(sec => {
+    if (expand) sec.classList.remove('collapsed');
+    else sec.classList.add('collapsed');
+  });
+  document.getElementById('expandAllBtn').classList.toggle('btn-active', expand);
+  document.getElementById('collapseAllBtn').classList.toggle('btn-active', !expand);
+}
+
+// ── Search & Filter ──
+function filterAll() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const typeFilter = document.getElementById('typeFilter').value;
+
+  let totalVisible = 0;
+  document.querySelectorAll('.entry-card').forEach(card => {
+    const gradeSection = card.closest('.grade-section');
+    const semDiv = card.closest('[id^="sem-"]');
+    const gradeCollapsed = gradeSection.classList.contains('collapsed');
+    const semHidden = semDiv && semDiv.style.display === 'none';
+
+    const type = card.dataset.type;
+    const text = card.textContent.toLowerCase();
+
+    const matchType = typeFilter === 'all' || type === typeFilter;
+    const matchSearch = !query || text.includes(query);
+
+    if (!gradeCollapsed && !semHidden && matchType && matchSearch) {
+      card.style.display = '';
+      totalVisible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Update counters per grade
+  document.querySelectorAll('.grade-section').forEach(sec => {
+    const grade = sec.dataset.grade;
+    const visible = sec.querySelectorAll('.entry-card[style*="display:"]').length;
+    const total = sec.querySelectorAll('.entry-card').length;
+    const counter = sec.querySelector('.grade-counter');
+    const collapsed = sec.classList.contains('collapsed');
+    if (collapsed) {
+      const allInGrade = sec.querySelectorAll('.entry-card').length;
+      counter.textContent = allInGrade + ' 篇';
+    } else {
+      counter.textContent = visible + ' / ' + total;
+    }
+  });
+
+  document.getElementById('statsDisplay').textContent = '显示 ' + totalVisible + ' 条';
+}
+
+// ── Init ──
+document.addEventListener('DOMContentLoaded', () => {
+  filterAll();
+});
+
+// Keyboard shortcut: Ctrl+F focuses search
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+    e.preventDefault();
+    document.getElementById('searchInput').focus();
+  }
+});
+</script>
+
+</body>
+</html>
